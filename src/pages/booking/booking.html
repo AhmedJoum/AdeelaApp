@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <button ion-button class="leftmenubutton" menuToggle="leftmenu">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title class="text-center">
+            {{ "booking" | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button class="rightmenubutton" menuToggle="rightmenu">
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+    <div class="en text-center center-block">
+        <div *ngIf="dates == 'nodates'">
+            <h2 class="text-center">No History</h2>
+        </div>
+        <div *ngIf="dates != null">
+            <h2 class="text-center"> Choose Date</h2>
+            <div *ngFor="let date of dates">
+                <button ion-button full block color="custom" (click)="History(date)">{{date.date}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="ar text-center center-block">
+        <div *ngIf="dates == 'nodates'">
+            <h2 class="text-center">لا يوجد سجل سابق</h2>
+        </div>
+        <div *ngIf="dates != null">
+            <h2 class="text-center">إختر تاريخ</h2>
+            <div *ngFor="let date of dates">
+                <button ion-button full block color="custom" (click)="History(date)">{{date.date}}</button>
+            </div>
+        </div>
+    </div>
+</ion-content>

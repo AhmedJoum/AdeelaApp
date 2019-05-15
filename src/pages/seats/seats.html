@@ -1,0 +1,239 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <ion-title class="text-center">
+            {{ "choose" | translate }} {{ "seat" | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="Next()">
+                {{ "forward" | translate }}
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+    <div *ngIf="busimage != null || busimage != undefined">
+        <img src="{{ busimage.image_url }}" class="img">
+    </div>
+    <div class="en">
+        <div class="row text-center center-block">
+            <button ion-button color="custom" disabled="true">{{ "driver" | translate }}</button>
+            <button ion-button color="custom" disabled="true" class="invisible">00</button>
+            <button ion-button color="custom" disabled="true">{{ "door" | translate }}</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="01" (click)="Check('01')">01</button>
+            <button ion-button class="02" (click)="Check('02')">02</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="03" (click)="Check('03')">03</button>
+            <button ion-button class="04" (click)="Check('04')">04</button>
+
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="05" (click)="Check('05')">05</button>
+            <button ion-button class="06" (click)="Check('06')">06</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="07" (click)="Check('07')">07</button>
+            <button ion-button class="08" (click)="Check('08')">08</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="09" (click)="Check('09')">09</button>
+            <button ion-button class="10" (click)="Check('10')">10</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="11" (click)="Check('11')">11</button>
+            <button ion-button class="12" (click)="Check('12')">12</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="13" (click)="Check('13')">13</button>
+            <button ion-button class="14" (click)="Check('14')">14</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="15" (click)="Check('15')">15</button>
+            <button ion-button class="16" (click)="Check('16')">16</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="17" (click)="Check('17')">17</button>
+            <button ion-button class="18" (click)="Check('18')">18</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="19" (click)="Check('19')">19</button>
+            <button ion-button class="20" (click)="Check('20')">20</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="21" (click)="Check('21')">21</button>
+            <button ion-button class="22" (click)="Check('22')">22</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button color="custom" disabled="true">{{ "maindoor" | translate }}</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="23" (click)="Check('23')">23</button>
+            <button ion-button class="24" (click)="Check('24')">24</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button color="custom" disabled="true">{{ "maindoor" | translate }}</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="28" (click)="Check('28')">28</button>
+            <button ion-button class="27" (click)="Check('27')">27</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="26" (click)="Check('26')">26</button>
+            <button ion-button class="25" (click)="Check('25')">25</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="32" (click)="Check('32')">32</button>
+            <button ion-button class="31" (click)="Check('31')">31</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="30" (click)="Check('30')">30</button>
+            <button ion-button class="29" (click)="Check('29')">29</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="36" (click)="Check('36')">36</button>
+            <button ion-button class="35" (click)="Check('35')">35</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="34" (click)="Check('34')">34</button>
+            <button ion-button class="33" (click)="Check('33')">33</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="40" (click)="Check('40')">40</button>
+            <button ion-button class="39" (click)="Check('39')">39</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="38" (click)="Check('38')">38</button>
+            <button ion-button class="37" (click)="Check('37')">37</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="44" (click)="Check('44')">44 </button>
+            <button ion-button class="43" (click)="Check('43')">43</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="42" (click)="Check('42')">42</button>
+            <button ion-button class="41" (click)="Check('41')">41</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="48" (click)="Check('48')">48</button>
+            <button ion-button class="47" (click)="Check('47')">47</button>
+            <button ion-button class="49" (click)="Check('49')">49</button>
+            <button ion-button class="46" (click)="Check('46')">46</button>
+            <button ion-button class="45" (click)="Check('45')">45</button>
+        </div>
+    </div>
+
+    <div class="ar">
+        <div class="row text-center center-block">
+            <button ion-button color="custom" disabled="true">{{ "driver" | translate }}</button>
+            <button ion-button color="custom" disabled="true" class="invisible">Exit AA</button>
+            <button ion-button color="custom" disabled="true">{{ "door" | translate }}</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="01" (click)="Check('01')">01</button>
+            <button ion-button class="02" (click)="Check('02')">02</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="03" (click)="Check('03')">03</button>
+            <button ion-button class="04" (click)="Check('04')">04</button>
+
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="05" (click)="Check('05')">05</button>
+            <button ion-button class="06" (click)="Check('06')">06</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="07" (click)="Check('07')">07</button>
+            <button ion-button class="08" (click)="Check('08')">08</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="09" (click)="Check('09')">09</button>
+            <button ion-button class="10" (click)="Check('10')">10</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="11" (click)="Check('11')">11</button>
+            <button ion-button class="12" (click)="Check('12')">12</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="13" (click)="Check('13')">13</button>
+            <button ion-button class="14" (click)="Check('14')">14</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="15" (click)="Check('15')">15</button>
+            <button ion-button class="16" (click)="Check('16')">16</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="17" (click)="Check('17')">17</button>
+            <button ion-button class="18" (click)="Check('18')">18</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="19" (click)="Check('19')">19</button>
+            <button ion-button class="20" (click)="Check('20')">20</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="21" (click)="Check('21')">21</button>
+            <button ion-button class="22" (click)="Check('22')">22</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button color="custom" disabled="true">{{ "maindoor" | translate }}</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="23" (click)="Check('23')">23</button>
+            <button ion-button class="24" (click)="Check('24')">24</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button color="custom" disabled="true">{{ "maindoor" | translate }}</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="28" (click)="Check('28')">28</button>
+            <button ion-button class="27" (click)="Check('27')">27</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="26" (click)="Check('26')">26</button>
+            <button ion-button class="25" (click)="Check('25')">25</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="32" (click)="Check('32')">32</button>
+            <button ion-button class="31" (click)="Check('31')">31</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="30" (click)="Check('30')">30</button>
+            <button ion-button class="29" (click)="Check('29')">29</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="36" (click)="Check('36')">36</button>
+            <button ion-button class="35" (click)="Check('35')">35</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="34" (click)="Check('34')">34</button>
+            <button ion-button class="33" (click)="Check('33')">33</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="40" (click)="Check('40')">40</button>
+            <button ion-button class="39" (click)="Check('39')">39</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="38" (click)="Check('38')">38</button>
+            <button ion-button class="37" (click)="Check('37')">37</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="44" (click)="Check('44')">44 </button>
+            <button ion-button class="43" (click)="Check('43')">43</button>
+            <button ion-button color="custom" class="invisible" disabled="true">00</button>
+            <button ion-button class="42" (click)="Check('42')">42</button>
+            <button ion-button class="41" (click)="Check('41')">41</button>
+        </div>
+        <br>
+        <div class="row text-center center-block">
+            <button ion-button class="48" (click)="Check('48')">48</button>
+            <button ion-button class="47" (click)="Check('47')">47</button>
+            <button ion-button class="49" (click)="Check('49')">49</button>
+            <button ion-button class="46" (click)="Check('46')">46</button>
+            <button ion-button class="45" (click)="Check('45')">45</button>
+        </div>
+    </div>
+</ion-content>

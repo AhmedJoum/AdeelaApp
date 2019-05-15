@@ -1,0 +1,198 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <ion-title class="text-center">
+            {{ "transactions" | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+    <div class="en">
+        <br>
+        <div *ngIf="transactions == null">
+            <h2 class="text-center">No Transactions</h2>
+        </div>
+        <div *ngIf="transactions != null">
+            <table class="table table-bordered" *ngFor="let transaction of transactions">
+                <tr>
+                    <th>
+                        Detail
+                    </th>
+                    <th>
+                        Value
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        ID
+                    </td>
+                    <td>
+                        {{transaction.id}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Booking No
+                    </td>
+
+                    <td>
+                        {{transaction.booking_no}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Ticket No
+                    </td>
+
+                    <td>
+                        {{transaction.ticket_no}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Amount
+                    </td>
+
+                    <td>
+                        {{transaction.amount}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Date
+                    </td>
+
+                    <td>
+                        {{transaction.date}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Time
+                    </td>
+
+                    <td>
+                        {{transaction.time}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Status
+                    </td>
+                    <td>
+                        <span *ngIf="transaction.status == 0">
+                            Pending
+                        </span>
+                        <span *ngIf="transaction.status == 1">
+                            Completed
+                        </span>
+                        <span *ngIf="transaction.status == 2">
+                            Failed
+                        </span>
+                        <span *ngIf="transaction.status == 3">
+                            Canceled
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="text-center">
+            <button ion-button full block type="button" (click)="GetTransactions()" color="custom">Refresh Page</button>
+            <button ion-button full block type="button" (click)="Home()" color="custom">Home Page</button>
+        </div>
+    </div>
+    <div class="ar">
+        <br>
+        <div *ngIf="transactions == null">
+            <h2 class="text-center">لا توجد دفعيات</h2>
+        </div>
+        <div *ngIf="transactions != null">
+            <table dir="rtl" class="table table-bordered" *ngFor="let transaction of transactions">
+                <tr>
+                    <td>
+                        التفصيل
+                    </td>
+                    <td>
+                        القيمة
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        رقم الدفعية
+                    </td>
+                    <td>
+                        {{transaction.id}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        رقم الحجز
+                    </td>
+
+                    <td>
+                        {{transaction.booking_no}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        رقم التذكرة
+                    </td>
+
+                    <td>
+                        {{transaction.ticket_no}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        المبلغ
+                    </td>
+
+                    <td>
+                        {{transaction.amount}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        التاريخ
+                    </td>
+
+                    <td>
+                        {{transaction.date}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        الوقت
+                    </td>
+
+                    <td>
+                        {{transaction.time}}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        الحالة
+                    </td>
+                    <td>
+                        <span *ngIf="transaction.status == 0">
+                            معلق
+                        </span>
+                        <span *ngIf="transaction.status == 1">
+                            اكتمل
+                        </span>
+                        <span *ngIf="transaction.status == 2">
+                            فشل
+                        </span>
+                        <span *ngIf="transaction.status == 3">
+                            ملغي
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="text-center">
+            <button ion-button full block type="button" (click)=" GetTransactions()" color="custom">تحديث الصفحة</button>      
+            <button ion-button full block type="button" (click)="Home()" color="custom">الرئيسية</button>
+        </div>
+    </div>
+</ion-content>

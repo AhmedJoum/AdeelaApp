@@ -1,0 +1,88 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <ion-title class="text-center">
+            {{ "dates" | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+    <div class="en text-center center-block">
+        <ion-segment [(ngModel)]="operation">
+            <ion-segment-button value="confirmed">
+                Confirmed
+            </ion-segment-button>
+            <ion-segment-button value="notconfirmed">
+                Not Confirmed
+            </ion-segment-button>
+        </ion-segment>
+        <div [ngSwitch]="operation">
+            <br>
+            <div *ngSwitchCase="'confirmed'">
+                <div *ngIf="records == 'nodates'">
+                    <h2 class="text-center">No History</h2>
+                </div>
+                <div *ngIf="records != 'nodates'">
+                    <h2 class="text-center"> Choose Record</h2>
+                    <div *ngFor="let record of records">
+                        <div *ngIf="record.status == '1'">
+                            <button ion-button color="custom" (click)="History(record)">{{record.from_en}} - {{record.to_en}} - {{record.time}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngSwitchCase="'notconfirmed'">
+                <div *ngIf="records == 'nodates'">
+                    <h2 class="text-center">No History</h2>
+                </div>
+                <div *ngIf="records != 'nodates'">
+                    <h2 class="text-center"> Choose Record</h2>
+                    <div *ngFor="let record of records">
+                        <div *ngIf="record.status == '2'">
+                            <button ion-button color="custom" (click)="History(record)">{{record.from_en}} - {{record.to_en}} - {{record.time}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ar text-center center-block">
+        <ion-segment [(ngModel)]="operation">
+            <ion-segment-button value="notconfirmed">
+                غير مؤكد
+            </ion-segment-button>
+            <ion-segment-button value="confirmed">
+                مؤكد
+            </ion-segment-button>
+        </ion-segment>
+        <div [ngSwitch]="operation">
+            <br>
+            <div *ngSwitchCase="'confirmed'">
+                <div *ngIf="records == 'nodates'">
+                    <h2 class="text-center">لا يوجد سجل سابق</h2>
+                </div>
+                <div *ngIf="records != 'nodates'">
+                    <h2 class="text-center"> إختار سجل</h2>
+                    <div *ngFor="let record of records">
+                        <div *ngIf="record.status == '1'">
+                            <button ion-button color="custom" (click)="History(record)">{{record.from_ar}} - {{record.to_ar}} - {{record.time}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngSwitchCase="'notconfirmed'">
+                <div *ngIf="records == 'nodates'">
+                    <h2 class="text-center">لا يوجد سجل سابق</h2>
+                </div>
+                <div *ngIf="records != 'nodates'">
+                    <h2 class="text-center"> إختار سجل</h2>
+                    <div *ngFor="let record of records">
+                        <div *ngIf="record.status == '2'">
+                            <button ion-button color="custom" (click)="History(record)">{{record.from_ar}} - {{record.to_ar}} - {{record.time}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

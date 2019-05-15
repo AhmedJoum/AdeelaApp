@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="custom">
+    <ion-title class="text-center">
+      {{ "methods" | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="bg">
+  <div class="en">
+    <h2 class="text-center"> Choose Payment Method</h2>
+    <br>
+    <div class="text-center">
+   <!--   <button ion-button full block type="button" (click)="Credit()" color="custom">Credit Transfer</button> -->
+      <button ion-button full block type="button" (click)="Bank()" color="custom">Bank Account</button>
+      <button ion-button full block type="button" (click)="Salepoint()" color="custom">Sales points</button>
+    </div>
+  </div>
+  <div class="ar">
+    <h2 class="text-center"> إختار طريقة الدفع</h2>
+    <br>
+    <div class="text-center">
+     <!-- <button ion-button full block type="button" (click)="Credit()" color="custom">تحويل رصيد</button> -->
+      <button ion-button full block type="button" (click)="Bank()" color="custom">حساب بنك</button>
+      <button ion-button full block type="button" (click)="Salepoint()" color="custom">نقطة بيع</button>
+    </div>
+  </div>
+</ion-content>

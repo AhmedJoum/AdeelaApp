@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <ion-title class="text-center">
+            {{ "guide" | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="bg">
+
+    <div class="en">
+        <h3 class="text-center">You can call us at 0910008878 or check the guides below</h3>
+        <br>
+        <div class="text-center">
+            <button ion-button full block type="button" (click)="Book()" color="custom">How to book a ticket</button>
+            <button ion-button full block type="button" (click)="Trip()" color="custom">How to request a trip</button>
+        </div>
+    </div>
+    <div class="ar">
+        <h3 class="text-center">يمكنك الاتصال بنا على الارقام 0910008878 اواستطلع الكتيب ادناه</h3>
+        <br>
+        <div class="text-center">
+            <button ion-button full block type="button" (click)="Book()" color="custom">كيفية حجز تذكرة</button>
+            <button ion-button full block type="button" (click)="Trip()" color="custom">كيفية حجز رحلة</button>
+        </div>
+    </div>
+
+</ion-content>

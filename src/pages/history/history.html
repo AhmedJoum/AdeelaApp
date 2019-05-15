@@ -1,0 +1,217 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <ion-title class="text-center">
+            {{ "history" | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+    <div class="en">
+        <br>
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    Detail
+                </th>
+                <th>
+                    Value
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    From
+                </td>
+                <td>
+                    {{navParams.get('from_en')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    To
+                </td>
+
+                <td>
+                    {{navParams.get('to_en')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Time
+                </td>
+
+                <td>
+                    {{navParams.get('time')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Agency
+                </td>
+
+                <td>
+                    {{navParams.get('agency_name_en')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Bus No
+                </td>
+
+                <td>
+                    {{navParams.get('bus_no')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Seat No
+                </td>
+
+                <td>
+                    {{navParams.get('seat_no')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Price
+                </td>
+
+                <td>
+                    {{navParams.get('price')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Booking No
+                </td>
+
+                <td>
+                    {{navParams.get('booking_id')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ticket No
+                </td>
+
+                <td>
+                    {{navParams.get('ticket_serial')}}
+                </td>
+            </tr>
+            <tr *ngIf="navParams.get('status') == '2'">
+                <td>
+                    Action
+                </td>
+                <td>
+                    <button ion-button full block type="button" (click)="RejectBooking(navParams.get('booking_id'))" color="custom">
+                        Delete Booking
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="ar">
+        <br>
+        <table dir="rtl" class="table table-bordered">
+            <tr>
+                <td>
+                    <strong>التفاصيل</strong>
+                </td>
+                <td>
+                    <strong>القيمة</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    من
+                </td>
+                <td>
+                    {{navParams.get('from_ar')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    الى
+                </td>
+
+                <td>
+                    {{navParams.get('to_ar')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    الوقت
+                </td>
+
+                <td>
+                    {{navParams.get('time')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    الوكالة
+                </td>
+
+                <td>
+                    {{navParams.get('agency_name_ar')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    رقم البص
+                </td>
+
+                <td>
+                    {{navParams.get('bus_no')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    رقم المقعد
+                </td>
+
+                <td>
+                    {{navParams.get('seat_no')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    السعر
+                </td>
+
+                <td>
+                    {{navParams.get('price')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    رقم الحجز
+                </td>
+
+                <td>
+                    {{navParams.get('booking_id')}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    رقم التذكرة
+                </td>
+
+                <td>
+                    {{navParams.get('ticket_serial')}}
+                </td>
+            </tr>
+            <tr *ngIf="navParams.get('status') == '2'">
+                <td>
+                    العملية
+                </td>
+
+                <td>
+                    <button ion-button full block type="button" (click)="RejectBooking(navParams.get('booking_id'))" color="custom">
+                        الغاء الحجز
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</ion-content>

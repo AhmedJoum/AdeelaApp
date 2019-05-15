@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-navbar color="custom">
+    <ion-title class="text-center">
+      {{ "salepoints" | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="bg">
+  <div class="en">
+    <h1 class="text-center">Choose the nearest Salespoint</h1>
+    <br>
+    <br>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon12">
+          <i class="fa fa-globe"></i>
+        </span>
+        <select (ngModelChange)="OnChange($event)" ngModel #statesen="ngModel" id="statesen" name="statesen" class="form-control"
+          aria-describedby="sizing-addon12">
+          <option value="" disabled selected>States List</option>
+          <option *ngFor="let city of encities" value="{{city}}">{{city}}</option>
+        </select>
+      </div>
+    </div>
+    <div *ngIf="salepoints != null">
+      <h4 class="text-center">You can book directly from any of the salespoints below.</h4>
+      <table class="table table-bordered">
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Phone
+          </th>
+          <th>
+            Location
+          </th>
+        </tr>
+
+        <tr *ngFor="let salepoint of salepoints;let i=index">
+          <td>
+            {{salepoint.name_en}}
+          </td>
+          <td class="phone-number">
+            <a (click)="callPhoneNumber(salepoint.phone)">{{salepoint.phone}}</a>
+          </td>
+          <td>
+            {{salepoint.province_en}} - {{salepoint.location_en}}
+          </td>
+        </tr>
+      </table>
+      <div class="text-center">
+        <button ion-button full block type="button" (click)="Home()" color="custom">Home page</button>
+      </div>
+    </div>
+  </div>
+  <div class="ar">
+    <h1 class="text-center">إختار اقرب نقطة بيع</h1>
+    <br>
+    <br>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon" id="sizing-addon3">
+          <i class="fa fa-globe"></i>
+        </span>
+        <select dir="rtl" (ngModelChange)="OnChange($event)" ngModel #statesar="ngModel" id="statesar" name="statesar" class="form-control"
+          aria-describedby="sizing-addon12">
+          <option value="" disabled selected>قائمة الولايات</option>
+          <option *ngFor="let city of arcities" value="{{city}}">{{city}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="salepoints != null">
+      <h4 class="text-center">يمكنك الحجز مباشرة من أي من نقاط البيع أدناه</h4>
+      <table dir="rtl" class="table table-bordered">
+        <tr>
+          <td>
+            الاسم
+          </td>
+          <td>
+            رقم الهاتف
+          </td>
+          <td>
+            الموقع
+          </td>
+        </tr>
+        <tr *ngFor="let salepoint of salepoints;let i=index">
+          <td>
+            {{salepoint.name_ar}}
+          </td>
+          <td class="phone-number">
+            <a (click)="callPhoneNumber(salepoint.phone)">{{salepoint.phone}}</a>
+          </td>
+          <td>
+            {{salepoint.province_ar}} - {{salepoint.location_ar}}
+          </td>
+        </tr>
+      </table>
+      <div class="text-center">
+        <button ion-button full block type="button" (click)="Home()" color="custom">الرئيسية</button>
+      </div>
+    </div>
+  </div>
+</ion-content>

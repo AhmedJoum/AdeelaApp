@@ -1,0 +1,48 @@
+<ion-header no-shadow>
+  <ion-navbar color="custom">
+    <ion-title class="text-center">
+      {{ 'tutorial' | translate }}
+    </ion-title>
+    <ion-buttons end *ngIf="showSkip">
+      <button ion-button (click)="startApp()">{{ 'SKIP_BUTTON' | translate}}</button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-bounce class="bg">
+  <ion-slides #slidess pager="true" dir="{{dir}}" (ionSlideWillChange)="onSlideChangeStart($event)" autoplay="3000" loop="true" speed="1000">
+    <ion-slide>
+      <img src="assets/imgs/1.png" class="slide-image" />
+      <h2 class="slide-title">Choose your favorite language</h2>
+      <h2 class="slide-title">إختر لغتك المفضلة</h2>
+      <div class="text-center">
+          <button ion-button type="button" (click)="SetLanguage('ar')" color="custom">العربية</button>
+          <button ion-button type="button" (click)="SetLanguage('en')" color="custom">English</button>
+      </div>
+
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/2.png" class="slide-image" />
+      <h2 class="slide-title">{{ 'TUTORIAL_SLIDE2_TITLE' | translate }}</h2>
+
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/3.png" class="slide-image" />
+      <h2 class="slide-title">{{ 'TUTORIAL_SLIDE3_TITLE' | translate }}</h2>
+
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/4.png" class="slide-image" />
+      <h2 class="slide-title">{{ 'TUTORIAL_SLIDE4_TITLE' | translate }}</h2>
+
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/5.png" class="slide-image" />
+      <h2 class="slide-title">{{ 'TUTORIAL_SLIDE5_TITLE' | translate }}</h2>
+      <button ion-button icon-end large clear (click)="startApp()">
+        {{ 'TUTORIAL_CONTINUE_BUTTON' | translate }}
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

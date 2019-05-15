@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="custom">
+      <ion-title *ngIf="language == 'en'" class="text-center">
+          Privacy policy
+      </ion-title>
+      <ion-title *ngIf="language == 'ar'" class="text-center">
+          سياسة الخصوصية
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+  <div *ngIf="language == 'en'">
+      <h2 text-center (click)="show()">Click to see our privacy policy</h2>
+  </div>
+  <div *ngIf="language == 'ar'" style="direction:rtl;">
+        <h2 text-center (click)="show()">معاينة سياسة الخصوصية الخاصة بنا</h2>
+  </div>
+</ion-content>

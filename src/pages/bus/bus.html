@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <ion-title class="text-center">
+            {{ "choose" | translate }} {{ "bus" | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+    <div class="en">
+        <ion-refresher (ionRefresh)="DoRefresh($event)">
+            <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+            </ion-refresher-content>
+        </ion-refresher>
+        <h1 class="text-center">First Class</h1>
+        <div *ngFor="let bus of buses;let i = index">
+            <div *ngIf="bus.level == 1">
+                <button ion-button full (click)="Next(bus)" color="custom">{{bus.name_en}} - {{bus.no}}</button>
+            </div>
+        </div>
+        <div *ngIf="buses == null">
+            <h4 class="text-center">No Buses Available</h4>
+        </div>
+        <br>
+        </div>
+
+    <div class="ar">
+        <h1 class="text-center">درجة أولى</h1>
+        <div *ngFor="let bus of buses">
+            <div *ngIf="bus.level == 1">
+                <button ion-button full (click)="Next(bus)" color="custom">{{bus.name_ar}} - {{bus.no}}</button>
+            </div>
+        </div>
+        <div *ngIf="buses == null">
+            <h4 class="text-center">لا توجد بصات متاحة</h4>
+        </div>
+        <br>
+       
+    </div>
+
+</ion-content>

@@ -1,0 +1,202 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <ion-title class="text-center">
+            {{ "summary" | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+    <div class="en">
+        <br>
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    Detail
+                </th>
+                <th>
+                    Value
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    From
+                </td>
+                <td>
+                    {{from}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    To
+                </td>
+
+                <td>
+                    {{to}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Time
+                </td>
+
+                <td>
+                    {{time}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Agency
+                </td>
+
+                <td>
+                    {{agency}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Bus
+                </td>
+
+                <td>
+                    {{bus}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Seat No
+                </td>
+
+                <td>
+                    {{seat_no}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Price
+                </td>
+
+                <td>
+                    {{price}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Booking No
+                </td>
+
+                <td>
+                    {{booking_no}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ticket No
+                </td>
+
+                <td>
+                    {{ticket_no}}
+                </td>
+            </tr>
+        </table>
+        <div class="text-center">
+                <button ion-button full block type="button" (click)="Finish()" color="custom">Main Page</button>
+            </div>
+    </div>
+    <div class="ar">
+        <br>
+        <table dir="rtl" class="table table-bordered">
+            <tr>
+                <td>
+                    <strong>التفاصيل</strong>
+                </td>
+                <td>
+                    <strong>القيمة</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    من
+                </td>
+                <td>
+                    {{from}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    الى
+                </td>
+
+                <td>
+                    {{to}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    الوقت
+                </td>
+
+                <td>
+                    {{time}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    الوكالة
+                </td>
+
+                <td>
+                    {{agency}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    البص
+                </td>
+
+                <td>
+                    {{bus}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    رقم المقعد
+                </td>
+
+                <td>
+                    {{seat_no}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    السعر
+                </td>
+
+                <td>
+                    {{price}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    رقم الحجز
+                </td>
+
+                <td>
+                    {{booking_no}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    رقم التذكرة
+                </td>
+
+                <td>
+                    {{ticket_no}}
+                </td>
+            </tr>
+        </table>
+        <div class="text-center">
+                <button ion-button full block type="button" (click)="Finish()" color="custom">الرئيسية</button>
+            </div>
+    </div>
+</ion-content>

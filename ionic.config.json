@@ -1,0 +1,8 @@
+{
+  "name": "AdeeelaUser",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "id": "2c6c1640"
+}

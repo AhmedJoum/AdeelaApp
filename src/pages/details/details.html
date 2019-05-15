@@ -1,0 +1,768 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <ion-title class="text-center">
+            {{ "tripdetails" | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+    <div class="en">
+        <br>
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    Detail
+                </th>
+                <th>
+                    Value
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    From
+                </td>
+                <td>
+                    {{from}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    To
+                </td>
+
+                <td>
+                    {{to}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Time
+                </td>
+
+                <td>
+                    {{time}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Agency
+                </td>
+
+                <td>
+                    {{agency}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Bus
+                </td>
+
+                <td>
+                    {{bus}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Bus No
+                </td>
+
+                <td>
+                    {{bus_no}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Seat Price
+                </td>
+
+                <td>
+                    {{price}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Seat No
+                </td>
+
+                <td>
+                    {{seats}}
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Total
+                </td>
+
+                <td>
+                    {{total}}
+                </td>
+            </tr>
+
+        </table>
+        <form #bookingen="ngForm" (ngSubmit)="Book(bookingen.value)" id="bookingen" name="bookingen" enctype="multipart/form-data">
+            <div *ngIf="seats.length >= 1">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen0="ngModel" type="text" id="passengernameen0" name="passengernameen0" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen0="ngModel" type="text" id="passengerphoneen0" name="passengerphoneen0" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 2">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen1="ngModel" type="text" id="passengernameen1" name="passengernameen1" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen1="ngModel" type="text" id="passengerphoneen1" name="passengerphoneen1" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 3">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen2="ngModel" type="text" id="passengernameen2" name="passengernameen2" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen2="ngModel" type="text" id="passengerphoneen2" name="passengerphoneen2" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 4">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen3="ngModel" type="text" id="passengernameen3" name="passengernameen3" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen3="ngModel" type="text" id="passengerphoneen3" name="passengerphoneen3" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen4="ngModel" type="text" id="passengernameen4" name="passengernameen4" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen4="ngModel" type="text" id="passengerphoneen4" name="passengerphoneen4" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 6">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen5="ngModel" type="text" id="passengernameen5" name="passengernameen5" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen5="ngModel" type="text" id="passengerphoneen5" name="passengerphoneen5" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 7">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen6="ngModel" type="text" id="passengernameen6" name="passengernameen6" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen6="ngModel" type="text" id="passengerphoneen6" name="passengerphoneen6" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 8">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen7="ngModel" type="text" id="passengernameen7" name="passengernameen7" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen7="ngModel" type="text" id="passengerphoneen7" name="passengerphoneen7" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 9">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen8="ngModel" type="text" id="passengernameen8" name="passengernameen8" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen8="ngModel" type="text" id="passengerphoneen8" name="passengerphoneen8" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 10">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen9="ngModel" type="text" id="passengernameen9" name="passengernameen9" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen9="ngModel" type="text" id="passengerphoneen9" name="passengerphoneen9" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 11">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen10="ngModel" type="text" id="passengernameen10" name="passengernameen10" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen10="ngModel" type="text" id="passengerphoneen10" name="passengerphoneen10" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 12">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen11="ngModel" type="text" id="passengernameen11" name="passengernameen11" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen11="ngModel" type="text" id="passengerphoneen11" name="passengerphoneen11" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 13">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen12="ngModel" type="text" id="passengernameen12" name="passengernameen12" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen12="ngModel" type="text" id="passengerphoneen12" name="passengerphoneen12" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 14">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input ngModel #passengernameen13="ngModel" type="text" id="passengernameen13" name="passengernameen13" class="form-control"
+                            placeholder="Passenger Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #passengerphoneen13="ngModel" type="text" id="passengerphoneen13" name="passengerphoneen13" class="form-control"
+                            placeholder="Passenger Phone">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button ion-button full block type="submit" color="custom">Book</button>
+            </div>
+        </form>
+    </div>
+    <div class="ar">
+        <br>
+        <table dir="rtl" class="table table-bordered">
+            <tr>
+                <td>
+                    <strong>التفاصيل</strong>
+                </td>
+                <td>
+                    <strong>القيمة</strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    من
+                </td>
+                <td>
+                    {{from}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    الى
+                </td>
+
+                <td>
+                    {{to}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    الوقت
+                </td>
+
+                <td>
+                    {{time}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    الوكالة
+                </td>
+
+                <td>
+                    {{agency}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    البص
+                </td>
+
+                <td>
+                    {{bus}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    رقم البص
+                </td>
+
+                <td>
+                    {{bus_no}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    سعر المقعد
+                </td>
+
+                <td>
+                    {{price}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    ارقام المقاعد
+                </td>
+
+                <td>
+                    {{seats}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    المجموع
+                </td>
+
+                <td>
+                    {{total}}
+                </td>
+            </tr>
+        </table>
+        <form #bookingar="ngForm" (ngSubmit)="Book(bookingar.value)" id="bookingar" name="bookingar" enctype="multipart/form-data">
+            <div *ngIf="seats.length >= 1">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear0="ngModel" type="text" id="passengernamear0" name="passengernamear0" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear0="ngModel" type="text" id="passengerphonear0" name="passengerphonear0" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 2">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear1="ngModel" type="text" id="passengernamear1" name="passengernamear1" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear1="ngModel" type="text" id="passengerphonear1" name="passengerphonear1" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 3">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear2="ngModel" type="text" id="passengernamear2" name="passengernamear2" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear2="ngModel" type="text" id="passengerphonear2" name="passengerphonear2" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 4">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear3="ngModel" type="text" id="passengernamear3" name="passengernamear3" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear3="ngModel" type="text" id="passengerphonear3" name="passengerphonear3" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 5">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear4="ngModel" type="text" id="passengernamear4" name="passengernamear4" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear4="ngModel" type="text" id="passengerphonear4" name="passengerphonear4" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 6">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear5="ngModel" type="text" id="passengernamear5" name="passengernamear5" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear5="ngModel" type="text" id="passengerphonear5" name="passengerphonear5" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 7">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear6="ngModel" type="text" id="passengernamear6" name="passengernamear6" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear6="ngModel" type="text" id="passengerphonear6" name="passengerphonear6" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 8">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear7="ngModel" type="text" id="passengernamear7" name="passengernamear7" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear7="ngModel" type="text" id="passengerphonear7" name="passengerphonear7" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 9">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear8="ngModel" type="text" id="passengernamear8" name="passengernamear8" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear8="ngModel" type="text" id="passengerphonear8" name="passengerphonear8" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 10">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear9="ngModel" type="text" id="passengernamear9" name="passengernamear9" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear9="ngModel" type="text" id="passengerphonear9" name="passengerphonear9" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 11">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear10="ngModel" type="text" id="passengernamear10" name="passengernamear10" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear10="ngModel" type="text" id="passengerphonear10" name="passengerphonear10" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 12">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear11="ngModel" type="text" id="passengernamear11" name="passengernamear11" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear11="ngModel" type="text" id="passengerphonear11" name="passengerphonear11" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 13">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear12="ngModel" type="text" id="passengernamear12" name="passengernamear12" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear12="ngModel" type="text" id="passengerphonear12" name="passengerphonear12" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="seats.length >= 14">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-address-book"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengernamear13="ngModel" type="text" id="passengernamear13" name="passengernamear13" class="form-control"
+                            placeholder="إسم الراكب" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon0">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passengerphonear13="ngModel" type="text" id="passengerphonear13" name="passengerphonear13" class="form-control"
+                            placeholder="رقم الهاتف" aria-describedby="sizing-addon0">
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button ion-button full block type="submit" color="custom">حجز</button>
+            </div>
+        </form>
+    </div>
+</ion-content>

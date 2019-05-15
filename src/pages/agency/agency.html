@@ -1,0 +1,99 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <ion-title class="text-center">
+            {{ "choose" | translate }} {{ "agency" | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+    <ion-refresher (ionRefresh)="DoRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <div class="ar">
+        <div *ngIf="agencies != null">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon103">
+                        <i class="fa fa-building-o"></i>
+                    </span>
+                    <select (ngModelChange)="OnChange($event)" dir="rtl" ngModel #agenciesar="ngModel" id="agenciesar" name="agenciesar" class="form-control"
+                        aria-describedby="sizing-addon103">
+                        <option value="" disabled selected>قائمة الوكالات</option>
+                        <option *ngFor="let agency of agencies; let i = index" value="{{i}}">{{agency.name_ar}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon103">
+                        <i class="fa fa-building-o"></i>
+                    </span>
+                    <div *ngIf="routes != 'no routes available'">
+                        <select (ngModelChange)="OnSelectChange($event)" dir="rtl" ngModel #routesar="ngModel" id="routesar" name="routesar" class="form-control"
+                            aria-describedby="sizing-addon103">
+                            <option value="" disabled selected>قائمة الاوقات</option>
+                            <option *ngFor="let route of routes; let i = index" value="{{i}}">{{route.time}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button ion-button full (click)="Next()" color="custom">متابعة</button>
+        </div>
+        <div *ngIf="agencies == null">
+            <h4 class="text-center">لا توجد وكالات متاحة</h4>
+        </div>
+    </div>
+    <div class="en">
+        <div *ngIf="agencies != null">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon103">
+                        <i class="fa fa-building-o"></i>
+                    </span>
+                    <select (ngModelChange)="OnChange($event)" ngModel #agenciesen="ngModel" id="agenciesen" name="agenciesen" class="form-control"
+                        aria-describedby="sizing-addon103">
+                        <option value="" disabled selected>Agencies List</option>
+                        <option *ngFor="let agency of agencies; let i = index" value="{{i}}">{{agency.name_en}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon" id="sizing-addon103">
+                        <i class="fa fa-building-o"></i>
+                    </span>
+                    <div *ngIf="routes != 'no routes available'">
+                        <select (ngModelChange)="OnSelectChange($event)" ngModel #routesen="ngModel" id="routesen" name="routesen" class="form-control"
+                            aria-describedby="sizing-addon103">
+                            <option value="" disabled selected>Time List</option>
+                            <option *ngFor="let route of routes; let i = index" value="{{i}}">{{route.time}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <button ion-button full (click)="Next()" color="custom">Continue</button>
+        </div>
+        <div *ngIf="agencies == null">
+            <h4 class="text-center">No agencies available</h4>
+        </div>
+    </div>
+    <div>
+        <div *ngIf="slides != null">
+            <ion-slides pager="true" autoplay="3000" loop="true" speed="1000">
+                <ion-slide *ngFor="let slide of slides">
+                    <div *ngIf="slide.url != null && slide.url != ''">
+                        <a href="{{slide.url}}" target="_new">
+                            <img src="{{slide.image_url}}" class="slide-image" />
+                        </a>
+                    </div>
+                    <div *ngIf="slide.url == null || slide.url == ''">
+                        <img src="{{slide.image_url}}" class="slide-image" />
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </div>
+</ion-content>

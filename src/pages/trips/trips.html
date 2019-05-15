@@ -1,0 +1,501 @@
+<ion-header>
+  <ion-navbar color="custom">
+    <ion-title class="text-center">
+      {{ "trips" | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+  <div class="en">
+    <ion-segment [(ngModel)]="operation" (ionChange)="Validate()">
+      <ion-segment-button value="new">
+        New Request
+      </ion-segment-button>
+      <ion-segment-button value="status">
+        Request Status
+      </ion-segment-button>
+    </ion-segment>
+    <div [ngSwitch]="operation">
+      <br>
+      <div *ngSwitchCase="'new'">
+        <h3 class="text-center">Please fill the special trip details</h3>
+        <form #requesttripformen="ngForm" (ngSubmit)="Request(requesttripformen.value)" id="requesttripformen" name="requesttripformen"
+          enctype="multipart/form-data">
+          <br>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1">
+                <i class="fa fa-road"></i>
+              </span>
+              <select ngModel #triptypeen="ngModel" id="triptypeen" name="triptypeen" class="form-control" aria-describedby="sizing-addon1">
+                <option value="" disabled selected>Trip Type</option>
+                <option value="1">Tourism</option>
+                <option value="2">Company/Organization</option>
+                <option value="3">Scientific Trip</option>
+                <option value="4">VIP</option>
+                <option value="5">Emergancy Trip</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon2">
+                <i class="fa fa-bus"></i>
+              </span>
+              <select ngModel #bustypeen="ngModel" id="bustypeen" name="bustypeen" class="form-control" aria-describedby="sizing-addon1">
+                <option value="" disabled selected>Bus Type</option>
+                <option value="1">49 Seats</option>
+                <option value="2">14 Seats</option>
+                <option value="3">11 Seats</option>
+                <option value="4">4 Seats</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon3">
+                <i class="fa fa-bus"></i>
+              </span>
+              <input ngModel #buscounten="ngModel" type="text" id="buscounten" name="buscounten" class="form-control" placeholder="Number of buses"
+                aria-describedby="sizing-addon3">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon4">
+                <i class="fa fa-forward"></i>
+              </span>
+              <input ngModel #fromen="ngModel" type="text" id="fromen" name="fromen" minlength="3" class="form-control" placeholder="Pickup Location"
+                aria-describedby="sizing-addon4">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon5">
+                <i class="fa fa-backward"></i>
+              </span>
+              <input ngModel #toen="ngModel" type="text" id="toen" name="toen" minlength="3" class="form-control" placeholder="Dropoff Location" aria-describedby="sizing-addon5">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1114">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <ion-item>
+                <ion-label text-left class="black">Trip Date</ion-label>
+                <ion-datetime class="black" placeholder="{{today}}" displayFormat="YYYY-MM-DD" min="{{today}}" max="{{maxdate}}" [(ngModel)]="trip_date" id="trip_date_en" name="trip_date_en">
+                </ion-datetime>
+              </ion-item>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon6">
+                <i class="fa fa-phone"></i>
+              </span>
+              <input ngModel #phoneen="ngModel" type="text" id="phoneen" name="phoneen" class="form-control" placeholder="Phone Number"
+                aria-describedby="sizing-addon6">
+            </div>
+          </div>
+          <div class="text-center">
+            <button ion-button full block type="submit" color="custom">Send Request</button>
+          </div>
+        </form>
+      </div>
+      <div *ngSwitchCase="'status'">
+          <h3 class="text-center" *ngIf="trips == null">No pervious records</h3>
+        <div *ngIf="trips != null">
+            <h3 class="text-center">Trips Records</h3>
+          <table class="table table-bordered" *ngFor="let trip of trips;let i=index">
+            <tr>
+              <th>
+                Trip Type
+              </th>
+              <th>
+                <span *ngIf="trip.trip_type == 1">
+                  Tourism
+                </span>
+                <span *ngIf="trip.trip_type == 2">
+                  Company/Organization
+                </span>
+                <span *ngIf="trip.trip_type == 3">
+                  Scientific Trip
+                </span>
+                <span *ngIf="trip.trip_type == 4">
+                  VIP
+                </span>
+                <span *ngIf="trip.trip_type == 5">
+                  Emergancy Trip
+                </span>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Bus Type
+              </th>
+              <th>
+                <span *ngIf="trip.bus_type == 1">
+                  49 Seats
+                </span>
+                <span *ngIf="trip.bus_type == 2">
+                  14 Seats
+                </span>
+                <span *ngIf="trip.bus_type == 3">
+                  11 Seats
+                </span>
+                <span *ngIf="trip.bus_type == 4">
+                  4 Seats
+                </span>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Bus Count
+              </th>
+              <th>
+                {{trip.bus_count}}
+              </th>
+            </tr>
+            <tr>
+              <th>
+                From
+              </th>
+              <th>
+                {{trip.from}}
+              </th>
+            </tr>
+            <tr>
+              <th>
+                To
+              </th>
+              <th>
+                {{trip.to}}
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Trip Date
+              </th>
+              <th>
+                {{trip.trip_date}}
+              </th>
+            </tr>
+            <tr *ngIf="trip.cost != null">
+              <th>
+                Cost
+              </th>
+              <th>
+                {{trip.cost}}
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Phone
+              </th>
+              <th>
+                {{trip.phone}}
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Date
+              </th>
+              <th>
+                {{trip.date}}
+              </th>
+            </tr>
+            <tr>
+              <th>
+                Status
+              </th>
+              <th>
+                <span *ngIf="trip.status == 0">
+                  Accepted
+                </span>
+                <span *ngIf="trip.status == 1">
+                  Pending
+                </span>
+                <span *ngIf="trip.status == 2">
+                  Rejected from administation
+                </span>
+                <span *ngIf="trip.status == 3">
+                  Rejected from you
+                </span>
+                <span *ngIf="trip.status == 4">
+                  Accepted and confirmed
+                </span>
+              </th>
+            </tr>
+            <tr *ngIf="trip.cost != null && trip.status == 0">
+                <td>
+                  Action
+                </td>
+                <td>
+                  <button ion-button type="button" (click)="AcceptTrip(trip,i)" color="custom">
+                    <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+                  </button>
+                  <button ion-button type="button" (click)="RejectTrip(trip,i)" color="custom">
+                    <ion-icon ios="ios-close" md="md-close"></ion-icon>
+                  </button>
+                </td>
+              </tr>
+          </table>
+          <div class="text-center">
+            <button ion-button full block type="button" (click)="GetRequestedTrips()" color="custom">Refresh Page</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="ar">
+    <ion-segment [(ngModel)]="operation" (ionChange)="Validate()">
+      <ion-segment-button value="status">
+        حالة الطلب
+      </ion-segment-button>
+      <ion-segment-button value="new">
+        طلب جديد
+      </ion-segment-button>
+    </ion-segment>
+    <div [ngSwitch]="operation">
+      <br>
+      <div *ngSwitchCase="'new'">
+        <h3 class="text-center">يرجى ملء تفاصيل الرحلة الخاصة</h3>
+        <form #requesttripformar="ngForm" (ngSubmit)="Request(requesttripformar.value)" id="requesttripformar" name="requesttripformar"
+          enctype="multipart/form-data">
+          <br>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1">
+                <i class="fa fa-road"></i>
+              </span>
+              <select dir="rtl" ngModel #triptypear="ngModel" id="triptypear" name="triptypear" class="form-control" aria-describedby="sizing-addon1">
+                <option value="" disabled selected>نوع الرحلة</option>
+                <option value="1">سياحة</option>
+                <option value="2">شركة / منظمة</option>
+                <option value="3">علمية</option>
+                <option value="4">شخصية مهمة (VIP)</option>
+                <option value="5">رحلة اسعافية</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon2">
+                <i class="fa fa-bus"></i>
+              </span>
+              <select dir="rtl" ngModel #bustypear="ngModel" id="bustypear" name="bustypear" class="form-control" aria-describedby="sizing-addon1">
+                <option value="" disabled selected>نوع البص</option>
+                <option value="1">49 مقعد</option>
+                <option value="2">14 مقعد</option>
+                <option value="3">11 مقعد</option>
+                <option value="4">4 مقعد</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon3">
+                <i class="fa fa-bus"></i>
+              </span>
+              <input dir="rtl" ngModel #buscountar="ngModel" type="text" id="buscountar" name="buscountar" class="form-control" placeholder="عدد البصات"
+                aria-describedby="sizing-addon3">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon4">
+                <i class="fa fa-forward"></i>
+              </span>
+              <input dir="rtl" ngModel #fromar="ngModel" type="text" id="fromar" name="fromar" minlength="3" class="form-control" placeholder="مكان القيام"
+                aria-describedby="sizing-addon4">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon5">
+                <i class="fa fa-backward"></i>
+              </span>
+              <input dir="rtl" ngModel #toar="ngModel" type="text" id="toar" name="toar" minlength="3" class="form-control" placeholder="مكان الوصول"
+                aria-describedby="sizing-addon5">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1115">
+                <i class="fa fa-calendar"></i>
+              </span>
+              <ion-item dir="rtl">
+                <ion-label text-right class="black">تاريخ الرحلة</ion-label>
+                <ion-datetime doneText="إختيار" cancelText="إلغاء" class="black" placeholder="{{today}}" displayFormat="YYYY-MM-DD" min="{{today}}" max="{{maxdate}}" [(ngModel)]="trip_date"
+                id="trip_date_ar"  name="trip_date_ar">
+                </ion-datetime>
+              </ion-item>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon6">
+                <i class="fa fa-phone"></i>
+              </span>
+              <input dir="rtl" ngModel #phonear="ngModel" type="text" id="phonear" name="phonear" class="form-control" placeholder="رقم الهاتف"
+                aria-describedby="sizing-addon6">
+            </div>
+          </div>
+          <div class="text-center">
+            <button ion-button full block type="submit" color="custom">ارسال طلب</button>
+          </div>
+        </form>
+      </div>
+      <div *ngSwitchCase="'status'">
+        <h3 class="text-center" *ngIf="trips == null">لا يوجد سجل سابق</h3>
+        <div *ngIf="trips != null">
+        <h3 class="text-center">سجل طلباتك</h3>
+          <table dir="rtl" class="table table-bordered" *ngFor="let trip of trips;let i=index">
+            <tr>
+              <td>
+                نوع الرحلة
+              </td>
+              <td>
+                <span *ngIf="trip.trip_type == 1">
+                  سياحية
+                </span>
+                <span *ngIf="trip.trip_type == 2">
+                  شركة / منظمة
+                </span>
+                <span *ngIf="trip.trip_type == 3">
+                  علمية
+                </span>
+                <span *ngIf="trip.trip_type == 4">
+                  شخصية مهمة (VIP)
+                </span>
+                <span *ngIf="trip.trip_type == 5">
+                 رحلة اسعافية
+                </span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                نوع البص
+              </td>
+              <td>
+                <span *ngIf="trip.bus_type == 1">
+                  49 مقعد
+                </span>
+                <span *ngIf="trip.bus_type == 2">
+                  14 مقعد
+                </span>
+                <span *ngIf="trip.bus_type == 3">
+                  11 مقعد
+                </span>
+                <span *ngIf="trip.bus_type == 4">
+                  4 مقعد
+                </span>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>
+                عدد البصات
+              </td>
+              <td>
+                {{trip.bus_count}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                من
+              </td>
+              <td>
+                {{trip.from}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                الى
+              </td>
+              <td>
+                {{trip.to}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                تاريخ الرحلة
+              </td>
+              <td>
+                {{trip.trip_date}}
+              </td>
+            </tr>
+            <tr *ngIf="trip.cost != null">
+              <td>
+                التكلفة
+              </td>
+              <td>
+                {{trip.cost}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                رقم الهاتف
+              </td>
+              <td>
+                {{trip.phone}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                تاريخ الطلب
+              </td>
+              <td>
+                {{trip.date}}
+              </td>
+            </tr>
+            <tr>
+              <td>
+                حالة الطلب
+              </td>
+              <td>
+                <span *ngIf="trip.cost != null && trip.status == 0">
+                  مقبول
+                </span>
+                <span *ngIf="trip.cost == null && trip.status == 0">
+                  مرفوض
+                </span>
+                <span *ngIf="trip.status == 1">
+                  معلق
+                </span>
+                <span *ngIf="trip.status == 2">
+                  مرفوض من الادارة
+                </span>
+                <span *ngIf="trip.status == 3">
+                  مرفوض من جانبك
+                </span>
+                <span *ngIf="trip.status == 4">
+                   مقبول و موكد
+                </span>
+              </td>
+            </tr>
+            <tr *ngIf="trip.cost != null && trip.status == 0">
+              <td>
+                العملية
+              </td>
+              <td>
+                <button ion-button type="button" (click)="AcceptTrip(trip,i)" color="custom">
+                  <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
+                </button>
+                <button ion-button type="button" (click)="RejectTrip(trip,i)" color="custom">
+                  <ion-icon ios="ios-close" md="md-close"></ion-icon>
+                </button>
+              </td>
+            </tr>
+          </table>
+          <div class="text-center">
+            <button ion-button full block type="button" (click)="GetRequestedTrips()" color="custom">تحديث الصفحة</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

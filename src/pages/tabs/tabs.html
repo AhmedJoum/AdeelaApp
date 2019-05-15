@@ -1,0 +1,13 @@
+
+<div class="en" >
+  <ion-tabs tabsPlacement='bottom' color="custom" selectedIndex="0">
+      <ion-tab [root]="tab1Root" tabTitle='{{ "home" | translate }}' tabIcon="pricetags"></ion-tab>
+      <ion-tab [root]="tab2Root" tabTitle='{{ "trips" | translate }}' tabIcon="bus"></ion-tab>
+  </ion-tabs>
+</div>
+<div class="ar">
+  <ion-tabs tabsPlacement='bottom' color="custom" selectedIndex="1">
+      <ion-tab [root]="tab2Root" tabTitle='{{ "trips" | translate }}' tabIcon="bus"></ion-tab>
+      <ion-tab [root]="tab1Root" tabTitle='{{ "home" | translate }}' tabIcon="pricetags"></ion-tab>
+  </ion-tabs>
+</div>

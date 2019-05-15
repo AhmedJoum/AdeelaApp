@@ -1,0 +1,98 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <button ion-button class="leftmenubutton" menuToggle="leftmenu">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title class="text-center">
+            {{ "main" | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button class="rightmenubutton" menuToggle="rightmenu">
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+    <div class="en">
+        <h1 class="text-center">{{ "choose" | translate }} {{ "cities" | translate }}</h1>
+        <br>
+        <br>
+        <ion-item>
+            <ion-label text-left class="black">{{ "from" | translate }}</ion-label>
+            <ion-select [(ngModel)]="start" okText="Choose" cancelText="Cancel">
+                <div *ngFor="let city of fromcitiesen">
+                    <ion-option value="{{city.from_en}}">{{city.from_en}}</ion-option>
+                </div>
+            </ion-select>
+        </ion-item>
+        <br>
+        <ion-item>
+            <ion-label text-left class="black">{{ "to" | translate }}</ion-label>
+            <ion-select [(ngModel)]="end" okText="Choose" cancelText="Cancel">
+                <div *ngFor="let city of tocitiesen">
+                    <ion-option value="{{city.to_en}}">{{city.to_en}}</ion-option>
+                </div>
+            </ion-select>
+        </ion-item>
+        <br>
+        <ion-item>
+            <ion-label text-left class="black">{{ "date" | translate }}</ion-label>
+            <ion-datetime class="black" placeholder="{{today}}" displayFormat="YYYY-MM-DD" min="{{today}}" max="{{maxdate}}" [(ngModel)]="date"
+                name="dateen">
+            </ion-datetime>
+        </ion-item>
+        <br>
+        <button (click)="Next()" ion-button color="custom" class="center-block select-width">{{ "next" | translate }}</button>
+    </div>
+
+    <div class="ar" dir="rtl">
+        <h1 class="text-center">{{ "choose" | translate }} {{ "cities" | translate }}</h1>
+        <ion-item>
+            <ion-label text-right class="black">من</ion-label>
+            <ion-select [(ngModel)]="start" okText="إختيار" cancelText="إلغاء">
+                <br>
+                <br>
+                <div *ngFor="let city of fromcitiesar">
+                    <ion-option value="{{city.from_ar}}">{{city.from_ar}}</ion-option>
+                </div>
+            </ion-select>
+        </ion-item>
+        <br>
+        <ion-item>
+            <ion-label text-right class="black">الى</ion-label>
+            <ion-select [(ngModel)]="end" okText="إختيار" cancelText="إلغاء">
+                <div *ngFor="let city of tocitiesar">
+                    <ion-option value="{{city.to_ar}}">{{city.to_ar}}</ion-option>
+                </div>
+            </ion-select>
+        </ion-item>
+        <br>
+        <ion-item>
+            <ion-label text-right class="black">{{ "date" | translate }}</ion-label>
+            <ion-datetime doneText="إختيار" cancelText="إلغاء" class="black" placeholder="{{today}}" displayFormat="YYYY-MM-DD" min="{{today}}"
+                max="{{maxdate}}" [(ngModel)]="date" name="datear">
+            </ion-datetime>
+        </ion-item>
+        <br>
+        <button (click)="Next()" ion-button full color="custom">متابعة</button>
+    </div>
+    <br>
+    <div>
+        <div *ngIf="slides != null || slides != undefined">
+            <ion-slides #slidess pager="true" (ionSlideWillChange)="onSlideChangeStart()" autoplay="3000" loop="true" speed="1000">
+                <ion-slide *ngFor="let slide of slides">
+                    <div *ngIf="slide.url != null && slide.url != ''">
+                        <a href="{{slide.url}}" target="_new">
+                            <img src="{{slide.image_url}}" class="slide-image" />
+                        </a>
+                    </div>
+                    <div *ngIf="slide.url == null || slide.url == ''">
+                        <img src="{{slide.image_url}}" class="slide-image" />
+                    </div>
+                </ion-slide>
+            </ion-slides>
+        </div>
+    </div>
+</ion-content>

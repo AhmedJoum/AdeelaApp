@@ -1,0 +1,162 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <ion-title class="text-center">
+            {{ "credit" | translate }}
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding class="bg">
+    <div class="en">
+        <h4>Please choose a number from numbers below and transfer credit to it.</h4>
+        <h4 class="alert-danger">Make sure to include the 10% transfer fee on top of the ticket fee.</h4>
+        <h4 class="alert-danger">Make sure to enter the Number that we will receive the money from otherwise your booking won't be confirmed.</h4>
+        <br>
+        <br>
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    Detail
+                </th>
+                <th>
+                    Value
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Ticket Price
+                </td>
+                <td>
+                    {{price}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Transfer Fee
+                </td>
+                <td>
+                    {{fee}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Total
+                </td>
+                <td>
+                    {{total}}
+                </td>
+            </tr>
+        </table>
+        <h4 class="alert-warning">Note: Credit Transfer is available only from 9 am to 5 pm.</h4>
+        <br>
+        <form #crediten="ngForm" (ngSubmit)="Confirm(crediten.value)" id="crediten" name="crediten" enctype="multipart/form-data">
+            <fieldset id="confirmbtnen" disabled="true">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon1">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input ngModel #transferphoneen="ngModel" type="text" id="transferphoneen" name="transferphoneen" class="form-control" placeholder="Transfer Phone"
+                            aria-describedby="sizing-addon1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon2">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <select ngModel #numbersen="ngModel" id="numbersen" name="numbersen" class="form-control" aria-describedby="sizing-addon2">
+                            <option value="" disabled selected>Numbers List</option>
+                            <option value="0912345671">0912345671</option>
+                            <option value="0912345672">0912345672</option>
+                            <option value="0912345673">0912345673</option>
+                            <option value="0912345674">0912345674</option>
+                            <option value="0912345675">0912345675</option>
+                            <option value="0912345676">0912345676</option>
+                            <option value="0912345677">0912345677</option>
+                            <option value="0912345678">0912345678</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button ion-button full block type="submit" color="custom">Confirm</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="ar">
+        <h4 dir="rtl">الرجاء اختيار رقم من الأرقام أدناه و تحويل الرصيد إليه.</h4>
+        <h4 dir="rtl" class="alert-danger">تأكد من تضمين رسوم التحويل 10٪ مع رسوم التذكرة.</h4>
+        <h4 dir="rtl" class="alert-danger">تأكد من إدخال الرقم الذي سوف نتلقى الرصيد منه، خلاف ذلك لن يتم تأكيد الحجز.</h4>
+        <br>
+        <table dir="rtl" class="table table-bordered">
+            <tr>
+                <td>
+                    التفصيل
+                </td>
+                <td>
+                    القيمة
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    سعر التذكرة
+                </td>
+                <td>
+                    {{price}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    رسوم التحويل
+                </td>
+                <td>
+                    {{fee}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    المجموع
+                </td>
+                <td>
+                    {{total}}
+                </td>
+            </tr>
+        </table>
+        <h4 dir="rtl" class="alert-warning">ملاحظة: تحويل الرصيد متوفر من الساعة 9 صباحا حتى 5 مساء.</h4>
+        <br>
+        <form #creditar="ngForm" (ngSubmit)="Confirm(creditar.value)" id="creditar" name="creditar" enctype="multipart/form-data">
+            <fieldset id="confirmbtnar" disabled="true">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon1">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" ngModel #transferphonear="ngModel" type="text" id="transferphonear" name="transferphonear" class="form-control"
+                            placeholder="رقم التحويل" aria-describedby="sizing-addon1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon2">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <select dir="rtl" ngModel #numbersar="ngModel" id="numbersar" name="numbersar" class="form-control" aria-describedby="sizing-addon2">
+                            <option value="" disabled selected>قائمة الارقام</option>
+                            <option value="0912345671">0912345671</option>
+                            <option value="0912345672">0912345672</option>
+                            <option value="0912345673">0912345673</option>
+                            <option value="0912345674">0912345674</option>
+                            <option value="0912345675">0912345675</option>
+                            <option value="0912345676">0912345676</option>
+                            <option value="0912345677">0912345677</option>
+                            <option value="0912345678">0912345678</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button ion-button full block type="submit" color="custom">تاكيد</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</ion-content>

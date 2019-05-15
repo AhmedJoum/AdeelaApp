@@ -1,0 +1,69 @@
+<ion-header>
+    <ion-navbar color="custom">
+        <button ion-button class="leftmenubutton" menuToggle="loginleft">
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title class="text-center">
+            {{ "login" | translate }}
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button class="rightmenubutton" menuToggle="loginright">
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding class="bg">
+
+    <form #loginformen="ngForm" (ngSubmit)="LoginEn(loginformen.value)" id="loginformen" class="en" name="loginformen" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1">
+                    <i class="fa fa-user"></i>
+                </span>
+                <input ngModel #phone="ngModel" type="text" id="phone" name="phone" class="form-control" placeholder="Phone Number"
+                    aria-describedby="sizing-addon1">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2">
+                    <i class="fa fa-edit"></i>
+                </span>
+                <input ngModel #password="ngModel" type="password" id="password" name="password" class="form-control" placeholder="Password"
+                    aria-describedby="sizing-addon2">
+            </div>
+        </div>
+        <div class="text-center">
+            <button ion-button full block type="submit" color="custom">Login</button>
+            <button ion-button full block type="button" (click)="Register()" color="custom">Create New Account</button>
+            <button ion-button full block type="button" (click)="resetPassword()" color="custom">Reset password</button>
+        </div>
+    </form>
+    <form #loginformar="ngForm" (ngSubmit)="LoginAr(loginformar.value)" id="loginformar" class="ar" name="loginformar" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon1">
+                    <i class="fa fa-user"></i>
+                </span>
+                <input dir="rtl" ngModel #phonee="ngModel" type="text" id="phonee" name="phonee" class="form-control" placeholder="رقم الهاتف"
+                    aria-describedby="sizing-addon1">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <span class="input-group-addon" id="sizing-addon2">
+                    <i class="fa fa-edit"></i>
+                </span>
+                <input dir="rtl" ngModel #passwordd="ngModel" type="password" id="passwordd" name="passwordd" class="form-control" placeholder="كلمة المرور"
+                    aria-describedby="sizing-addon2">
+            </div>
+        </div>
+        <div class="text-center">
+            <button ion-button full block type="submit" color="custom">تسجيل الدخول</button>
+            <button ion-button full block type="button" (click)="Register()" color="custom">إنشاء حساب جديد</button>
+            <button ion-button full block type="button" (click)="resetPassword()" color="custom">نسيت كلمة المرور</button>
+        </div>
+    </form>
+</ion-content>

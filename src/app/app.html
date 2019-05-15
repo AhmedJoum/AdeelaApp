@@ -1,0 +1,92 @@
+<div [ngSwitch]="logged">
+    <div *ngSwitchCase="1">
+        <ion-menu side="right" id="rightmenu" [content]="content">
+            <ion-header>
+                <ion-toolbar color="custom">
+                    <ion-title dir="rtl">{{ name }}</ion-title>
+                </ion-toolbar>
+            </ion-header>
+
+            <ion-content>
+                <ion-list id="list" dir="rtl">
+                    <button detail-none ion-item menuClose="rightmenu" *ngFor="let link of arlinks" (click)="OpenLink(link)">
+                        <ion-icon ios="ios-{{link.icon}}" md="md-{{link.icon}}" item-start></ion-icon>
+                        <span class="pull-right" style="color:black">{{link.name}}</span>
+                    </button>
+                    <button detail-none ion-item menuClose="rightmenu" (click)="ChangeLanguage()">
+                        <ion-icon ios="ios-switch-outline" md="md-switch" item-start></ion-icon>
+                        <span class="pull-right" style="color:black">تغيير اللغة</span>
+                    </button>
+                    <button detail-none ion-item menuClose="rightmenu" (click)="Logout()">
+                        <ion-icon ios="ios-power-outline" md="md-power" item-start></ion-icon>
+                        <span class="pull-right" style="color:black">تسجيل الخروج</span>
+                    </button>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+        <ion-menu side="left" id="leftmenu" [content]="content">
+            <ion-header>
+                <ion-toolbar color="custom">
+                    <ion-title>{{ name }}</ion-title>
+                </ion-toolbar>
+            </ion-header>
+
+            <ion-content>
+                <ion-list id="list">
+                    <button detail-none ion-item menuClose="leftmenu" *ngFor="let link of links" (click)="OpenLink(link)">
+                        <ion-icon ios="ios-{{link.icon}}" md="md-{{link.icon}}" item-start></ion-icon>
+                        <span class="pull-left" style="color:black">{{link.name}}</span>
+                    </button>
+                    <button detail-none ion-item menuClose="leftmenu" (click)="ChangeLanguage()">
+                        <ion-icon ios="ios-switch-outline" md="md-switch" item-start></ion-icon>
+                        <span class="pull-left" style="color:black">Change Language</span>
+                    </button>
+                    <button detail-none ion-item menuClose="leftmenu" (click)="Logout()">
+                        <ion-icon ios="ios-power-outline" md="md-power" item-start></ion-icon>
+                        <span class="pull-left" style="color:black">Logout</span>
+                    </button>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+        <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+    </div>
+    <div *ngSwitchCase="0">
+            <ion-menu side="left" id="loginleft" [content]="content">
+                    <ion-header>
+                        <ion-toolbar color="custom">
+                            <ion-title> {{ "guest" | translate }} </ion-title>
+                        </ion-toolbar>
+                    </ion-header>
+        
+                    <ion-content>
+                        <ion-list>
+                            <button detail-none ion-item menuClose="loginleft" (click)="ChangeLanguage()">
+                                <ion-icon ios="ios-switch-outline" md="md-switch" item-start></ion-icon>
+                                <span class="pull-left" style="color:black">{{ "change" | translate }} {{ "language" | translate }}</span>
+                            </button>
+                        </ion-list>
+                    </ion-content>
+                </ion-menu>
+                
+        <ion-menu side="right" id="loginright" [content]="content">
+            <ion-header>
+                <ion-toolbar color="custom">
+                    <ion-title> {{ "guest" | translate }} </ion-title>
+                </ion-toolbar>
+            </ion-header>
+
+            <ion-content>
+                <ion-list dir="rtl">
+                    <button detail-none ion-item menuClose="loginright" (click)="ChangeLanguage()">
+                        <ion-icon ios="ios-switch-outline" md="md-switch" item-start></ion-icon>
+                        <span class="pull-right" style="color:black">{{ "change" | translate }} {{ "language" | translate }}</span>
+                    </button>
+                </ion-list>
+            </ion-content>
+        </ion-menu>
+
+        <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+    </div>
+</div>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

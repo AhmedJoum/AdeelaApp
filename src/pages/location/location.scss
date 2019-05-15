@@ -1,0 +1,20 @@
+page-location {
+    #registerformar select {
+        padding: 6px 26px !important;
+    }
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text; 
+
+    
+    .phone-number {
+        a {
+            text-decoration: none;
+            color: blueviolet;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        color: blueviolet;
+    }
+}

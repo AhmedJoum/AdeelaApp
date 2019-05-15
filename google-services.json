@@ -1,0 +1,72 @@
+{
+  "project_info": {
+    "project_number": "1048493230494",
+    "firebase_url": "https://adeeela-user.firebaseio.com",
+    "project_id": "adeeela-user"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048493230494:android:ac0c967cf51fdfc0",
+        "android_client_info": {
+          "package_name": "com.aurtechsolutions.adeeelauser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048493230494-r6mmvneg32j6iue0sd69v1nufuacm7b7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJ9kbQ3KoDKoe6oFTqUIAFbsFxd4EhY6g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048493230494:android:70b3587c819b0afb",
+        "android_client_info": {
+          "package_name": "com.aurtechsolutions.adeeelaadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048493230494-r6mmvneg32j6iue0sd69v1nufuacm7b7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJ9kbQ3KoDKoe6oFTqUIAFbsFxd4EhY6g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

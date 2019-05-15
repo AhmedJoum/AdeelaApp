@@ -1,0 +1,135 @@
+<ion-header>
+  <ion-navbar color="custom">
+    <ion-title class="text-center">
+      {{ "register" | translate }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="bg">
+  <div class="en">
+    <form #registerformen="ngForm" (ngSubmit)="Register(registerformen.value)" id="registerformen" name="registerformen"
+      enctype="multipart/form-data">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon3">
+            <i class="fa fa-id-card-o"></i>
+          </span>
+          <input ngModel #name="ngModel" type="text" id="name" name="name" class="form-control" placeholder="Name" aria-describedby="sizing-addon3">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon4">
+            <i class="fa fa-phone"></i>
+          </span>
+          <input ngModel #phone="ngModel" type="text" id="phone" name="phone" class="form-control" placeholder="Phone" aria-describedby="sizing-addon4">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon5">
+            <i class="fa fa-envelope-open"></i>
+          </span>
+          <input ngModel #email="ngModel" type="text" id="email" name="email" class="form-control" placeholder="Email (Optional)" aria-describedby="sizing-addon5">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon6">
+            <i class="fa fa-users"></i>
+          </span>
+          <select ngModel #gender="ngModel" id="gender" name="gender" class="form-control" aria-describedby="sizing-addon6">
+            <option value="" disabled selected>Gender</option>
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon8">
+            <i class="fa fa-edit"></i>
+          </span>
+          <input ngModel #password="ngModel" type="password" id="password" name="password" class="form-control" placeholder="Password"
+            aria-describedby="sizing-addon8">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon9">
+            <i class="fa fa-edit"></i>
+          </span>
+          <input ngModel #cpassword="ngModel" type="password" id="cpassword" name="cpassword" class="form-control" placeholder="Confirm Password"
+            aria-describedby="sizing-addon9">
+        </div>
+      </div>
+      <div class="text-center">
+        <button ion-button full color="custom">Create Account</button>
+      </div>
+    </form>
+  </div>
+  <div class="ar">
+      <form #registerformar="ngForm" (ngSubmit)="Register(registerformar.value)" id="registerformar" name="registerformar"
+      enctype="multipart/form-data">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon3">
+            <i class="fa fa-id-card-o"></i>
+          </span>
+          <input dir="rtl" ngModel #namee="ngModel" type="text" id="namee" name="namee" class="form-control" placeholder="الاسم" aria-describedby="sizing-addon3">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon4">
+            <i class="fa fa-phone"></i>
+          </span>
+          <input dir="rtl" ngModel #phonee="ngModel" type="text" id="phonee" name="phonee" class="form-control" placeholder="رقم الهاتف" aria-describedby="sizing-addon4">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon5">
+            <i class="fa fa-envelope-open"></i>
+          </span>
+          <input dir="rtl" ngModel #emaill="ngModel" type="text" id="emaill" name="emaill" class="form-control" placeholder="البريد الاكتروني (اختياري)" aria-describedby="sizing-addon5">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon6">
+            <i class="fa fa-users"></i>
+          </span>
+          <select dir="rtl" ngModel #genderr="ngModel" id="genderr" name="genderr" class="form-control" aria-describedby="sizing-addon6">
+            <option value="" disabled selected>الجنس</option>
+            <option value="0">ذكر</option>
+            <option value="1">انثى</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon8">
+            <i class="fa fa-edit"></i>
+          </span>
+          <input dir="rtl" ngModel #passwordd="ngModel" type="password" id="passwordd" name="passwordd" class="form-control" placeholder="كلمة المرور"
+            aria-describedby="sizing-addon8">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon" id="sizing-addon9">
+            <i class="fa fa-edit"></i>
+          </span>
+          <input dir="rtl" ngModel #cpasswordd="ngModel" type="password" id="cpasswordd" name="cpasswordd" class="form-control" placeholder="تاكيد كلمة المرور"
+            aria-describedby="sizing-addon9">
+        </div>
+      </div>
+      <div class="text-center">
+        <button ion-button full color="custom">إنشاء حساب</button>
+      </div>
+    </form>
+  </div>
+</ion-content>

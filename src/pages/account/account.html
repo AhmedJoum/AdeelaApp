@@ -1,0 +1,129 @@
+<ion-header>
+        <ion-navbar color="custom">
+            <ion-title class="text-center">
+                {{ "myaccount" | translate }}
+            </ion-title>
+        </ion-navbar>
+    </ion-header>
+    
+    <ion-content padding class="bg">
+        <div class="en">
+            <form #accountform="ngForm" (ngSubmit)="UpdateEn(accountform.value)" id="accountform" name="accountform" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon1">
+                            <i class="fa fa-id-card-o"></i>
+                        </span>
+                        <input readonly="true" type="text" id="name" name="name" class="form-control" placeholder="Name" aria-describedby="sizing-addon1"
+                            value="{{name}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon2">
+                            <i class="fa fa-users"></i>
+                        </span>
+                        <input readonly="true" type="text" id="gender" name="gender" class="form-control" placeholder="Gender" aria-describedby="sizing-addon2"
+                            value="{{gender}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon4">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input [(ngModel)]="phone" type="text" id="phone" name="phone" class="form-control" placeholder="Phone" aria-describedby="sizing-addon4">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon5">
+                            <i class="fa fa-envelope-open"></i>
+                        </span>
+                        <input [(ngModel)]="email" type="text" id="email" name="email" class="form-control" placeholder="Email (Optional)" aria-describedby="sizing-addon5">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon8">
+                            <i class="fa fa-edit"></i>
+                        </span>
+                        <input ngModel #password="ngModel" type="password" id="password" name="password" class="form-control" placeholder="Password"
+                            aria-describedby="sizing-addon8">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon9">
+                            <i class="fa fa-edit"></i>
+                        </span>
+                        <input ngModel #cpassword="ngModel" type="password" id="cpassword" name="cpassword" class="form-control" placeholder="Confirm Password"
+                            aria-describedby="sizing-addon9">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button ion-button full color="custom">Update</button>
+                </div>
+            </form>
+        </div>
+        <div class="ar">
+            <form #accountformar="ngForm" (ngSubmit)="UpdateAr(accountformar.value)" id="accountform-ar" name="accountform-ar" enctype="multipart/form-data">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon11">
+                            <i class="fa fa-id-card-o"></i>
+                        </span>
+                        <input readonly="true" dir="rtl" type="text" id="namee" name="namee" class="form-control" placeholder="Name" aria-describedby="sizing-addon11"
+                            value="{{name}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon12">
+                            <i class="fa fa-users"></i>
+                        </span>
+                        <input readonly="true" dir="rtl" type="text" id="genderr" name="genderr" class="form-control" placeholder="Gender" aria-describedby="sizing-addon12"
+                            value="{{gender}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon13">
+                            <i class="fa fa-phone"></i>
+                        </span>
+                        <input dir="rtl" [(ngModel)]="phonee" type="text" id="phonee" name="phonee" class="form-control" placeholder="Phone" aria-describedby="sizing-addon13">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon55">
+                            <i class="fa fa-envelope-open"></i>
+                        </span>
+                        <input dir="rtl" [(ngModel)]="emaill" type="text" id="emaill" name="emaill" class="form-control" placeholder="البريد الالكتروني (اختياري)"
+                            aria-describedby="sizing-addon55">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon88">
+                            <i class="fa fa-edit"></i>
+                        </span>
+                        <input dir="rtl" ngModel #passwordd="ngModel" type="password" id="passwordd" name="passwordd" class="form-control" placeholder="كلمة المرور"
+                            aria-describedby="sizing-addon88">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon" id="sizing-addon9">
+                            <i class="fa fa-edit"></i>
+                        </span>
+                        <input dir="rtl" ngModel #cpasswordd="ngModel" type="password" id="cpasswordd" name="cpasswordd" class="form-control" placeholder="تاكيد كلمة المرور"
+                            aria-describedby="sizing-addon9">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button ion-button full color="custom">تحديث</button>
+                </div>
+            </form>
+        </div>
+    </ion-content>
