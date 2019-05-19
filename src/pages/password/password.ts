@@ -10,17 +10,17 @@ declare var $: any;
   templateUrl: 'password.html',
 })
 export class PasswordPage {
-  language: any = localStorage.getItem('AdeeelaLanguage');
-  logged: any = localStorage.getItem("AdeeelaLoggedIn");
-  token: any = localStorage.getItem("AdeeelaToken");
-  id: any = localStorage.getItem("AdeeelaID");
+  language: any = localStorage.getItem('Language');
+  logged: any = localStorage.getItem("LoggedIn");
+  token: any = localStorage.getItem("Token");
+  id: any = localStorage.getItem("ID");
   constructor(public server: ServerProvider, public translate: TranslateService, public navCtrl: NavController, public navParams: NavParams) {
     translate.use(this.language);
   }
 
   ionViewWillEnter() {
     this.Validate();
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     if (this.language == "ar") {
       $(".en").addClass("hidden");
       $(".en").addClass("space-30");

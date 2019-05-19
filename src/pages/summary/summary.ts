@@ -9,9 +9,9 @@ declare var $:any;
   templateUrl: 'summary.html',
 })
 export class SummaryPage {
-language: any = localStorage.getItem('AdeeelaLanguage');
-user_id: any = localStorage.getItem('AdeeelaID');
-permission: any = localStorage.getItem('AdeeelaPermission');
+language: any = localStorage.getItem('Language');
+user_id: any = localStorage.getItem('ID');
+permission: any = localStorage.getItem('Permission');
 from: any = sessionStorage.getItem("From");
 to: any = sessionStorage.getItem("To");
 time: any = sessionStorage.getItem("Time");
@@ -31,7 +31,7 @@ today: any = new Date();
   }
 
   ionViewWillEnter() {
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     if (this.language == "ar") {
       $(".en").addClass("hidden");
       $(".leftmenubutton").addClass("hidden");

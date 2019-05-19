@@ -8,7 +8,7 @@ declare var $:any;
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  language: any = localStorage.getItem('AdeeelaLanguage');
+  language: any = localStorage.getItem('Language');
   tab1Root = 'HomePage';
   tab2Root = 'TripsPage';
   tab3Root = 'AccountPage';
@@ -18,7 +18,7 @@ export class TabsPage {
   }
   
   ionViewwillEnter(){
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     if (this.language == "ar") {
       $(".en").addClass("hidden");
       $(".leftmenubutton").addClass("hidden");

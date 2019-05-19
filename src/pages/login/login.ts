@@ -11,9 +11,9 @@ declare var $: any;
   templateUrl: 'login.html',
 })
 export class LoginPage {
-  language: any = localStorage.getItem('AdeeelaLanguage');
-  logged: any = localStorage.getItem("AdeeelaLoggedIn");
-  token: any = localStorage.getItem("AdeeelaToken");
+  language: any = localStorage.getItem('Language');
+  logged: any = localStorage.getItem("LoggedIn");
+  token: any = localStorage.getItem("Token");
 
   constructor(public translate: TranslateService, private server: ServerProvider, public navCtrl: NavController, public navParams: NavParams, private splashScreen: SplashScreen) {
     translate.use(this.language);
@@ -22,18 +22,30 @@ export class LoginPage {
   ionViewWillEnter() {
     this.Validate();
     this.IsLogged();
-    this.language = localStorage.getItem("AdeeelaLanguage");
-    if (this.language == "ar") {
-      $(".en").addClass("hidden");
-      $(".en").addClass("space-50");
-      $(".ar").addClass("space-50");
-      $(".leftmenubutton").addClass("hidden");
+    this.language = localStorage.getItem("Language");
+    var isArabiclanguage = this.language == "ar"
+    if (isArabiclanguage) {
+      this.OnArabicSelected();
     } else {
-      $(".ar").addClass("hidden");
-      $(".ar").addClass("space-50");
-      $(".en").addClass("space-50");
-      $(".rightmenubutton").addClass("hidden");
+      this.OnEnglishSelected();
     }
+  }
+
+
+
+  private OnArabicSelected() {
+    $(".en").addClass("hidden");
+    $(".en").addClass("space-50");
+    $(".ar").addClass("space-50");
+    $(".leftmenubutton").addClass("hidden");
+  }
+
+
+  private OnEnglishSelected() {
+    $(".ar").addClass("hidden");
+    $(".ar").addClass("space-50");
+    $(".en").addClass("space-50");
+    $(".rightmenubutton").addClass("hidden");
   }
 
   IsLogged() {
@@ -57,13 +69,13 @@ export class LoginPage {
       this.server.ServerRequest('auth', 'NormalLogin', data).then(result => {
         var userdata = JSON.parse(JSON.stringify(result));
         if (userdata.response == "Ok") {
-          localStorage.setItem("AdeeelaLoggedIn", "1");
-          localStorage.setItem("AdeeelaID", userdata.id);
-          localStorage.setItem("AdeeelaToken", userdata.token);
-          localStorage.setItem("AdeeelaName", userdata.name);
-          localStorage.setItem("AdeeelaEmail", userdata.email);
-          localStorage.setItem("AdeeelaPhone", userdata.phone);
-          localStorage.setItem("AdeeelaGender", userdata.gender);
+          localStorage.setItem("LoggedIn", "1");
+          localStorage.setItem("ID", userdata.id);
+          localStorage.setItem("Token", userdata.token);
+          localStorage.setItem("Name", userdata.name);
+          localStorage.setItem("Email", userdata.email);
+          localStorage.setItem("Phone", userdata.phone);
+          localStorage.setItem("Gender", userdata.gender);
           this.navCtrl.setRoot("TabsPage");
           this.splashScreen.show();
           setTimeout(() => {
@@ -82,7 +94,7 @@ export class LoginPage {
       });
     }
   }
-  
+
   LoginEn(form) {
 
     if (form.phone === "" || form.phone == null || form.password === "" || form.password == null) {
@@ -97,13 +109,13 @@ export class LoginPage {
       this.server.ServerRequest('auth', 'NormalLogin', data).then(result => {
         var userdata = JSON.parse(JSON.stringify(result));
         if (userdata.response == "Ok") {
-          localStorage.setItem("AdeeelaLoggedIn", "1");
-          localStorage.setItem("AdeeelaID", userdata.id);
-          localStorage.setItem("AdeeelaToken", userdata.token);
-          localStorage.setItem("AdeeelaName", userdata.name);
-          localStorage.setItem("AdeeelaEmail", userdata.email);
-          localStorage.setItem("AdeeelaPhone", userdata.phone);
-          localStorage.setItem("AdeeelaGender", userdata.gender);
+          localStorage.setItem("LoggedIn", "1");
+          localStorage.setItem("ID", userdata.id);
+          localStorage.setItem("Token", userdata.token);
+          localStorage.setItem("Name", userdata.name);
+          localStorage.setItem("Email", userdata.email);
+          localStorage.setItem("Phone", userdata.phone);
+          localStorage.setItem("Gender", userdata.gender);
           this.navCtrl.setRoot("TabsPage");
           this.splashScreen.show();
           setTimeout(() => {
@@ -167,6 +179,6 @@ export class LoginPage {
   resetPassword() {
 
     this.navCtrl.push("NewpasswordPage");
-    
+
   }
 }

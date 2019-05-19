@@ -10,15 +10,15 @@ declare var $: any;
   templateUrl: 'payment.html',
 })
 export class PaymentPage {
-  language: any = localStorage.getItem('AdeeelaLanguage');
-  logged: any = localStorage.getItem('AdeeelaLoggedIn');
+  language: any = localStorage.getItem('Language');
+  logged: any = localStorage.getItem('LoggedIn');
   url:any = sessionStorage.getItem("url");
   data:any;
   constructor(public translate: TranslateService, public server: ServerProvider, public navCtrl: NavController, public navParams: NavParams) {
     translate.use(this.language);
   }
   ionViewWillEnter() {
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     if (this.language == "ar") {
       $(".en").addClass("hidden");
       $(".leftmenubutton").addClass("hidden");

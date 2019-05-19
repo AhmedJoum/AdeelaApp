@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { AlertController, LoadingController, ToastController } from 'ionic-angular';
-import { FCM } from '@ionic-native/fcm';
+// import { FCM } from '@ionic-native/fcm';
 @Injectable()
 export class ServerProvider {
-  private baseurl = "https://server.adeeela.com/api";
+  private baseurl = "https://server..com/api";
   //private baseurl = "http://192.168.1.101:9999/api";
   //private baseurl = "http://127.0.0.1:9999/api";
   private api = [];
   public today: any;
   public maxdate: any;
-  public language = localStorage.getItem('AdeeelaLanguage');
+  public language = localStorage.getItem('Language');
   public times = [
    "03:00:00","03:15:00", "03:30:00", "03:45:00", "04:00:00", "04:15:00", "04:30:00", "04:45:00", "05:00:00", "05:15:00", "05:30:00", "05:45:00", "06:00:00", "06:15:00",  "06:30:00", "06:45:00", "07:00:00", "07:15:00", "07:30:00", "07:45:00", "08:00:00",
    "08:15:00", "08:30:00", "08:45:00", "09:00:00", "09:15:00", "09:30:00", "09:45:00", "10:00:00", "10:15:00", "10:30:00", "10:45:00", "11:00:00", "11:15:00", "11:30:00", "11:45:00", "12:00:00", "12:15:00", "12:30:00", "12:45:00", "13:00:00", "13:15:00",
@@ -28,7 +28,8 @@ export class ServerProvider {
   public loader: any;
   data: any;
 
-  constructor(public fcm: FCM, public http: Http, public toastCtrl: ToastController, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+  constructor(//public fcm: FCM,
+     public http: Http, public toastCtrl: ToastController, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
     this.api['auth'] = 'authentication';
     this.api['agency'] = 'Agencies';
     this.api['ads'] = 'Ads';
@@ -49,7 +50,7 @@ export class ServerProvider {
       this.http.post(this.baseurl + "/" + this.api[api] + "/" + request, JSON.stringify(data), { headers: headers }).map(res => res.json()).subscribe((result) => {
         resolve(result);
       }, (error) => {
-        this.language = localStorage.getItem("AdeeelaLanguage");
+        this.language = localStorage.getItem("Language");
         switch (this.language) {
           case 'en':
             if (error.toString().indexOf("null") != -1) {
@@ -153,10 +154,10 @@ export class ServerProvider {
     return new Promise((resolve) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json; charset=UTF-8');
-      //let url = "https://www.adeeela.com/api/notifications/singlenotification.php";
-      let url = "http://admar.adeeela.com/notify.php";
+      //let url = "https://www..com/api/notifications/singlenotification.php";
+      let url = "http://admar..com/notify.php";
       this.http.post(url, JSON.stringify(data), { headers: headers }).map(res => res.json()).subscribe((error) => {
-        this.language = localStorage.getItem("AdeeelaLanguage");
+        this.language = localStorage.getItem("Language");
         switch (this.language) {
           case 'en':
             if (error.toString().indexOf("null") != -1) {
@@ -211,10 +212,10 @@ export class ServerProvider {
     return new Promise((resolve) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json; charset=UTF-8');
-      //let url = "https://www.adeeela.com/api/notifications/massnotifications.php";
-      let url = "http://admar.adeeela.com/massnotify.php";
+      //let url = "https://www..com/api/notifications/massnotifications.php";
+      let url = "http://admar..com/massnotify.php";
       this.http.post(url, JSON.stringify(data), { headers: headers }).map(res => res.json()).subscribe((error) => {
-        this.language = localStorage.getItem("AdeeelaLanguage");
+        this.language = localStorage.getItem("Language");
         switch (this.language) {
           case 'en':
             if (error.toString().indexOf("null") != -1) {
@@ -264,7 +265,7 @@ export class ServerProvider {
     return new Promise((resolve) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json; charset=UTF-8');
-      let url = "http://admar.adeeela.com/adeeela/createpayment.php";
+      let url = "http://admar..com//createpayment.php";
       this.http.post(url, JSON.stringify(data), { headers: headers }).map(res => res.json()).subscribe(response => {
         resolve(response);
       });
@@ -275,7 +276,7 @@ export class ServerProvider {
     return new Promise((resolve) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json; charset=UTF-8');
-      let url = "http://admar.adeeela.com/adeeela/agencies.php";
+      let url = "http://admar..com//agencies.php";
       this.http.post(url, JSON.stringify(data), { headers: headers }).map(res => res.json()).subscribe(response => {
         resolve(response);
       });
@@ -286,7 +287,7 @@ export class ServerProvider {
     return new Promise((resolve) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json; charset=UTF-8');
-      let url = "http://admar.adeeela.com/adeeela/verifytickets.php";
+      let url = "http://admar..com//verifytickets.php";
       this.http.post(url, JSON.stringify(data), { headers: headers }).map(res => res.json()).subscribe(response => {
         resolve(response);
       });
@@ -297,7 +298,7 @@ export class ServerProvider {
     return new Promise((resolve) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json; charset=UTF-8');
-      let url = "http://admar.adeeela.com/payment/payment.php";
+      let url = "http://admar..com/payment/payment.php";
       this.http.post(url, JSON.stringify(data), { headers: headers }).map(res => res.json()).subscribe(response => {
         resolve(response);
       });
@@ -308,7 +309,7 @@ export class ServerProvider {
     return new Promise((resolve) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json; charset=UTF-8');
-      let url = "http://admar.adeeela.com/adeeela/update.php";
+      let url = "http://admar..com//update.php";
       this.http.post(url, JSON.stringify(data), { headers: headers }).map(res => res.json()).subscribe(response => {
         resolve(response);
       });
@@ -319,7 +320,7 @@ export class ServerProvider {
     return new Promise((resolve) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json; charset=UTF-8');
-      let url = "http://admar.adeeela.com/adeeela/update-password.php";
+      let url = "http://admar..com//update-password.php";
       this.http.post(url, JSON.stringify(data), { headers: headers }).subscribe(response => {
         resolve(JSON.parse(JSON.stringify(response))['_body']);
       });
@@ -344,7 +345,7 @@ export class ServerProvider {
   }
 
   CreateAlert(title, message, buttons) {
-    this.language = localStorage.getItem('AdeeelaLanguage');
+    this.language = localStorage.getItem('Language');
     let alert: any;
     switch (this.language) {
       case 'en':
@@ -368,50 +369,50 @@ export class ServerProvider {
 
   }
 
-  GetToken() {
-    let id = localStorage.getItem('AdeeelaID');
-    this.fcm.getToken().then(token => {
-      let data;
-      data = {
-        id: id,
-        token: token
-      };
-      this.HiddenServerRequest('tools', 'UpdateNormalToken', data).then(result => {
-        localStorage.setItem("AdeeelaToken", token);
-      });
-    });
+  // GetToken() {
+  //   let id = localStorage.getItem('ID');
+  //   this.fcm.getToken().then(token => {
+  //     let data;
+  //     data = {
+  //       id: id,
+  //       token: token
+  //     };
+  //     this.HiddenServerRequest('tools', 'UpdateNormalToken', data).then(result => {
+  //       localStorage.setItem("Token", token);
+  //     });
+  //   });
 
-    this.fcm.onTokenRefresh().subscribe(token => {
-      let data;
-      localStorage.setItem("AdeeelaToken", token);
-      data = {
-        id: id,
-        token: token
-      };
-      this.HiddenServerRequest('tools', 'UpdateNormalToken', data).then(result => {
-        localStorage.setItem("AdeeelaToken", token);
-      });
-    });
-  }
-  InitializeToken() {
-    let id = localStorage.getItem('AdeeelaID');
-    this.fcm.subscribeToTopic('normalusers_'+id);
-    this.fcm.subscribeToTopic('AdeeelaUser');
-    this.fcm.subscribeToTopic('AdeeelaNormalUser');
-    this.fcm.onNotification().subscribe(data => {
-      if (data.wasTapped) {
-        this.CreateAlert(data.title, data.body, ['Close']);
-      } else {
-        this.CreateAlert(data.title, data.body, ['Close']);
-      };
-    });
-  }
+  //   this.fcm.onTokenRefresh().subscribe(token => {
+  //     let data;
+  //     localStorage.setItem("Token", token);
+  //     data = {
+  //       id: id,
+  //       token: token
+  //     };
+  //     this.HiddenServerRequest('tools', 'UpdateNormalToken', data).then(result => {
+  //       localStorage.setItem("Token", token);
+  //     });
+  //   });
+  // }
+  // InitializeToken() {
+  //   let id = localStorage.getItem('ID');
+  //   this.fcm.subscribeToTopic('normalusers_'+id);
+  //   this.fcm.subscribeToTopic('User');
+  //   this.fcm.subscribeToTopic('NormalUser');
+  //   this.fcm.onNotification().subscribe(data => {
+  //     if (data.wasTapped) {
+  //       this.CreateAlert(data.title, data.body, ['Close']);
+  //     } else {
+  //       this.CreateAlert(data.title, data.body, ['Close']);
+  //     };
+  //   });
+  // }
 
   getCities() {
     return new Promise((resolve) => {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json; charset=UTF-8');
-      let url = "http://admar.adeeela.com/adeeela/cities.php";
+      let url = "http://admar..com//cities.php";
       this.http.get(url, { headers: headers }).map(res => res.json()).subscribe(response => {
         resolve(response);
       });

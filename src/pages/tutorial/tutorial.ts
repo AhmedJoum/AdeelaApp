@@ -19,14 +19,14 @@ export class TutorialPage {
   @ViewChild('slidess') slidess: Slides;
   showSkip = true;
   dir: string = 'ltr';
-  language: any = localStorage.getItem("AdeeelaLanguage");
+  language: any = localStorage.getItem("Language");
   constructor(public navCtrl: NavController, public menu: MenuController, public translate: TranslateService, public platform: Platform) {
     this.dir = platform.dir();
     
   }
 
   startApp() {
-    localStorage.setItem("AdeeelaFirstTime", "true");
+    localStorage.setItem("FirstTime", "true");
     this.navCtrl.setRoot('LoginPage', {}, {
       animate: true,
       direction: 'forward'
@@ -34,7 +34,7 @@ export class TutorialPage {
   }
 
   SetLanguage(language) {
-    localStorage.setItem("AdeeelaLanguage", language);
+    localStorage.setItem("Language", language);
     this.language = language;
     this.translate.setDefaultLang(this.language);
     this.translate.use(this.language);

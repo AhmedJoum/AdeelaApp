@@ -13,11 +13,11 @@ declare let $: any;
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any;
-  firsttime: any = localStorage.getItem('AdeeelaFirstTime');
-  language: any = localStorage.getItem('AdeeelaLanguage');
-  logged: any = localStorage.getItem('AdeeelaLoggedIn');
-  name: any = localStorage.getItem('AdeeelaName');
-  token: any = localStorage.getItem('AdeeelaToken');
+  firsttime: any = localStorage.getItem('FirstTime');
+  language: any = localStorage.getItem('Language');
+  logged: any = localStorage.getItem('LoggedIn');
+  name: any = localStorage.getItem('Name');
+  token: any = localStorage.getItem('Token');
   links: Array<{ name: string, icon: string, component: any, data: any }>;
   arlinks: Array<{ name: string, icon: string, component: any, data: any }>;
 
@@ -34,8 +34,8 @@ export class MyApp {
   }
   InitializeLanguage() {
     if (this.language == null || this.language == undefined) {
-      localStorage.setItem('AdeeelaLanguage', 'ar');
-      this.language = localStorage.getItem('AdeeelaLanguage');
+      localStorage.setItem('Language', 'ar');
+      this.language = localStorage.getItem('Language');
     }
     this.translate.setDefaultLang(this.language);
     this.translate.use(this.language);
@@ -43,8 +43,8 @@ export class MyApp {
 
   InitializeLogin() {
     if (this.logged == null || this.logged == undefined) {
-      localStorage.setItem('AdeeelaLoggedIn', '0');
-      this.logged = localStorage.getItem('AdeeelaLoggedIn');
+      localStorage.setItem('LoggedIn', '0');
+      this.logged = localStorage.getItem('LoggedIn');
     }
   }
 
@@ -95,14 +95,14 @@ export class MyApp {
   }
 
   Logout() {
-    localStorage.removeItem("AdeeelaLoggedIn");
-    localStorage.removeItem("AdeeelaID");
-    localStorage.removeItem("AdeeelaToken");
-    localStorage.removeItem("AdeeelaName");
-    localStorage.removeItem("AdeeelaGender");
-    localStorage.removeItem("AdeeelaPhone");
-    localStorage.removeItem("AdeeelaEmail");
-    localStorage.removeItem("AdeeelaTopic");
+    localStorage.removeItem("LoggedIn");
+    localStorage.removeItem("ID");
+    localStorage.removeItem("Token");
+    localStorage.removeItem("Name");
+    localStorage.removeItem("Gender");
+    localStorage.removeItem("Phone");
+    localStorage.removeItem("Email");
+    localStorage.removeItem("Topic");
     this.nav.setRoot("LoginPage", {}, { animate: true, direction: "back" });
     this.splashScreen.show();
     setTimeout(() => {
@@ -116,7 +116,7 @@ export class MyApp {
         {
           text: 'English',
           handler: () => {
-            localStorage.setItem("AdeeelaLanguage", "en");
+            localStorage.setItem("Language", "en");
             this.language = "en";
             this.translate.use("en");
             $(".leftmenubutton").removeClass("hidden");
@@ -133,7 +133,7 @@ export class MyApp {
         {
           text: 'العربية',
           handler: () => {
-            localStorage.setItem("AdeeelaLanguage", "ar");
+            localStorage.setItem("Language", "ar");
             this.language = "ar";
             this.translate.use("ar");
             $(".rightmenubutton").removeClass("hidden");
@@ -157,7 +157,7 @@ export class MyApp {
         {
           text: 'English',
           handler: () => {
-            localStorage.setItem("AdeeelaLanguage", "en");
+            localStorage.setItem("Language", "en");
             this.language = "en";
             this.translate.use("en");
             $(".leftmenubutton").removeClass("hidden");
@@ -174,7 +174,7 @@ export class MyApp {
         {
           text: 'العربية',
           handler: () => {
-            localStorage.setItem("AdeeelaLanguage", "ar");
+            localStorage.setItem("Language", "ar");
             this.language = "ar";
             this.translate.use("ar");
             $(".rightmenubutton").removeClass("hidden");

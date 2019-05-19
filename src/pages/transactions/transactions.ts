@@ -11,7 +11,7 @@ declare var $: any;
 export class TransactionsPage {
 
   constructor(public server: ServerProvider, public translate: TranslateService, public navCtrl: NavController, public navParams: NavParams) { }
-  language: any = localStorage.getItem("AdeeelaLanguage");
+  language: any = localStorage.getItem("Language");
   data: any;
   transactions: any;
   loop:any;
@@ -21,7 +21,7 @@ export class TransactionsPage {
   agency: any = sessionStorage.getItem("AgencyName");
 
   ionViewWillEnter() {
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     if (this.language == "ar") {
       $(".en").addClass("hidden");
       $(".leftmenubutton").addClass("hidden");
@@ -38,9 +38,9 @@ export class TransactionsPage {
   }
   GetTransactions() {
     this.data = {
-      user_id: localStorage.getItem("AdeeelaID")
+      user_id: localStorage.getItem("ID")
     };
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     switch (this.language) {
       case 'en':
         this.server.CreateLoading("Getting your transactions", "dots", 20000);
@@ -70,9 +70,9 @@ export class TransactionsPage {
   }
   GetHiddenTransactions() {
     this.data = {
-      user_id: localStorage.getItem("AdeeelaID")
+      user_id: localStorage.getItem("ID")
     };
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     switch (this.language) {
       case 'en':
         this.server.HiddenServerRequest("payment", "GetMyTransactions", this.data).then(result => {
@@ -84,7 +84,7 @@ export class TransactionsPage {
             this.transactions = data;
             setInterval(() => {
               this.server.MassNotifications('New tiket', 'New ticket is requested', 'ticketForAgencyAdeela_'+this.agency_id);
-              this.server.MassNotifications('New tiket', 'New ticket is requested for agency '+this.agency, 'adeeela99');
+              this.server.MassNotifications('New tiket', 'New ticket is requested for agency '+this.agency, '99');
             }, 20000);
           }
         });
@@ -100,7 +100,7 @@ export class TransactionsPage {
             setInterval(() => {
               this.server.MassNotifications('تذكرة حديدة', 'تم طلب تذكرة جديدة', 'ticketForAgencyAdeela_'+this.agency_id);
               let msg = ' تم طلب تذكرة جديدة لوكالة ' + this.agency;
-              this.server.MassNotifications('تذكرة حديدة', msg, 'adeeela99');
+              this.server.MassNotifications('تذكرة حديدة', msg, '99');
             }, 20000);
           }
         });

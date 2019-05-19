@@ -9,7 +9,7 @@ declare var $: any;
   templateUrl: 'newpassword.html',
 })
 export class NewpasswordPage {
-  language: any = localStorage.getItem('AdeeelaLanguage');
+  language: any = localStorage.getItem('Language');
   phone: any
   phonee: any
   password: any

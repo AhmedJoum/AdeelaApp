@@ -7,7 +7,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'privacy.html',
 })
 export class PrivacyPage {
-  language: any = localStorage.getItem('AdeeelaLanguage');
+  language: any = localStorage.getItem('Language');
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 

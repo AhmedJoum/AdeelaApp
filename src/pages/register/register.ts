@@ -10,9 +10,9 @@ declare var $: any;
   templateUrl: 'register.html',
 })
 export class RegisterPage {
-  language: any = localStorage.getItem('AdeeelaLanguage');
-  logged: any = localStorage.getItem("AdeeelaLoggedIn");
-  token: any = localStorage.getItem("AdeeelaToken");
+  language: any = localStorage.getItem('Language');
+  logged: any = localStorage.getItem("LoggedIn");
+  token: any = localStorage.getItem("Token");
   data: any;
   constructor(public translate: TranslateService, private server: ServerProvider, public navCtrl: NavController, public navParams: NavParams, private splashScreen: SplashScreen) {
     translate.use(this.language);
@@ -20,7 +20,7 @@ export class RegisterPage {
   }
   ionViewWillEnter() {
     this.Validate();
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     if (this.language == "ar") {
       $(".en").addClass("hidden");
       $(".en").addClass("space-10");
@@ -43,7 +43,7 @@ export class RegisterPage {
   }
 
   Register(form) {
-    this.language = localStorage.getItem('AdeeelaLanguage');
+    this.language = localStorage.getItem('Language');
     switch (this.language) {
       case 'en':
         if (form.name == "" || form.name == null || form.phone == "" || form.phone == null  || form.gender == "" || form.gender == null || form.password == "" || form.password == null) {
@@ -61,12 +61,12 @@ export class RegisterPage {
         this.server.ServerRequest("auth", "RegisterAccount", this.data).then(result => {
           var data = JSON.parse(JSON.stringify(result));
           if (data.response == "Ok") {
-            localStorage.setItem("AdeeelaLoggedIn", "1");
-            localStorage.setItem("AdeeelaID", data.id);
-            localStorage.setItem("AdeeelaName", form.name);
-            localStorage.setItem("AdeeelaEmail", form.email);
-            localStorage.setItem("AdeeelaPhone", form.phone);
-            localStorage.setItem("AdeeelaGender", form.gender);
+            localStorage.setItem("LoggedIn", "1");
+            localStorage.setItem("ID", data.id);
+            localStorage.setItem("Name", form.name);
+            localStorage.setItem("Email", form.email);
+            localStorage.setItem("Phone", form.phone);
+            localStorage.setItem("Gender", form.gender);
             this.navCtrl.setRoot("TabsPage");
             this.splashScreen.show();
             setTimeout(() => {
@@ -93,12 +93,12 @@ export class RegisterPage {
         this.server.ServerRequest("auth", "RegisterAccount", this.data).then(result => {
           var data = JSON.parse(JSON.stringify(result));
           if (data.response == "Ok") {
-            localStorage.setItem("AdeeelaLoggedIn", "1");
-            localStorage.setItem("AdeeelaID", data.id);
-            localStorage.setItem("AdeeelaName", form.namee);
-            localStorage.setItem("AdeeelaEmail", form.emaill);
-            localStorage.setItem("AdeeelaPhone", form.phonee);
-            localStorage.setItem("AdeeelaGender", form.genderr);
+            localStorage.setItem("LoggedIn", "1");
+            localStorage.setItem("ID", data.id);
+            localStorage.setItem("Name", form.namee);
+            localStorage.setItem("Email", form.emaill);
+            localStorage.setItem("Phone", form.phonee);
+            localStorage.setItem("Gender", form.genderr);
             this.navCtrl.setRoot("TabsPage");
             this.splashScreen.show();
             setTimeout(() => {

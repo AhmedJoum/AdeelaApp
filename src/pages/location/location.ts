@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ServerProvider } from '../../providers/server/server';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
-import { CallNumber } from '@ionic-native/call-number';
+//import { CallNumber } from '@ionic-native/call-number';
 
 declare var $: any;
 @IonicPage()
@@ -18,7 +18,9 @@ export class LocationPage {
   arcities: any = new Array();
   data:any;
   salepoints:any;
-  constructor(public translate:TranslateService, private server: ServerProvider, public navCtrl: NavController, public navParams: NavParams, private callNumber: CallNumber) { 
+  constructor(public translate:TranslateService, private server: ServerProvider, public navCtrl: NavController, public navParams: NavParams, 
+    // private callNumber: CallNumber
+    ) { 
     translate.use(this.language);
     this.encities = this.server.encities;
     this.arcities = this.server.arcities;
@@ -80,8 +82,8 @@ export class LocationPage {
   }
   callPhoneNumber(number) {
     console.log('number ', number);
-    this.callNumber.callNumber(number.toString(), false)
-  .then(res => console.log('Launched dialer!', res))
-  .catch(err => console.log('Error launching dialer', err));
+  //   this.callNumber.callNumber(number.toString(), false)
+  // .then(res => console.log('Launched dialer!', res))
+  // .catch(err => console.log('Error launching dialer', err));
   }
 }

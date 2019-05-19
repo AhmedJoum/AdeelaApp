@@ -10,11 +10,11 @@ declare var $: any;
   templateUrl: 'methods.html',
 })
 export class MethodsPage {
-  language: any = localStorage.getItem('AdeeelaLanguage');
-  logged: any = localStorage.getItem('AdeeelaLoggedIn');
+  language: any = localStorage.getItem('Language');
+  logged: any = localStorage.getItem('LoggedIn');
   data: any;
-  user_id: any = localStorage.getItem('AdeeelaID');
-  permission: any = localStorage.getItem('AdeeelaPermission');
+  user_id: any = localStorage.getItem('ID');
+  permission: any = localStorage.getItem('Permission');
   from: any = sessionStorage.getItem("From");
   to: any = sessionStorage.getItem("To");
   time: any = sessionStorage.getItem("Time");
@@ -35,7 +35,7 @@ export class MethodsPage {
   }
 
   ionViewWillEnter() {
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     if (this.language == "ar") {
       $(".en").addClass("hidden");
       $(".leftmenubutton").addClass("hidden");
@@ -50,7 +50,7 @@ export class MethodsPage {
   }
 
   Bank() {
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     let data = [];
 
     this.navParams.data.forEach(d => {

@@ -10,15 +10,15 @@ declare let $: any;
   templateUrl: 'booking.html',
 })
 export class BookingPage {
-  language: any = localStorage.getItem('AdeeelaLanguage');
-  logged: any = localStorage.getItem('AdeeelaLoggedIn');
+  language: any = localStorage.getItem('Language');
+  logged: any = localStorage.getItem('LoggedIn');
   dates: any;
   constructor(public server: ServerProvider, public translate: TranslateService, public navCtrl: NavController, public navParams: NavParams) {
     translate.use(this.language);
   }
 
   ionViewWillEnter() {
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     if (this.language == "ar") {
       $(".en").addClass("hidden");
       $(".leftmenubutton").addClass("hidden");
@@ -33,7 +33,7 @@ export class BookingPage {
 
   GetDates() {
     let data = {
-      id: localStorage.getItem('AdeeelaID')
+      id: localStorage.getItem('ID')
     };
     switch (this.language) {
       case 'en':

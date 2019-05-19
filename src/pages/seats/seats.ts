@@ -10,8 +10,8 @@ declare let $: any;
   templateUrl: 'seats.html',
 })
 export class SeatsPage {
-  language: any = localStorage.getItem('AdeeelaLanguage');
-  permission: any = localStorage.getItem('AdeeelaPermission');
+  language: any = localStorage.getItem('Language');
+  permission: any = localStorage.getItem('Permission');
   firstrun: any;
   loop: any;
   busimage: any;
@@ -22,7 +22,7 @@ export class SeatsPage {
   }
 
   ionViewWillEnter() {
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     if (this.language == "ar") {
       $(".en").addClass("hidden");
       $(".leftmenubutton").addClass("hidden");
@@ -56,7 +56,7 @@ export class SeatsPage {
     }
   }
   GetBusImage() {
-    this.language = localStorage.getItem('AdeeelaLanguage');
+    this.language = localStorage.getItem('Language');
     this.data = {
       id: sessionStorage.getItem("BusImage")
     };
@@ -87,7 +87,7 @@ export class SeatsPage {
   }
 
   InitializeButtons() {
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     let data = {
       agency_id: sessionStorage.getItem('AgencyID'),
       route_id: sessionStorage.getItem('RouteID'),
@@ -185,7 +185,7 @@ export class SeatsPage {
 
   InitializeButtons2() {
 
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     let data = {
       agency_id: sessionStorage.getItem('AgencyID'),
       route_id: sessionStorage.getItem('RouteID'),
@@ -280,7 +280,7 @@ export class SeatsPage {
   }
   Next() {
     if (this.seats.length == 0) {
-      this.language = localStorage.getItem("AdeeelaLanguage");
+      this.language = localStorage.getItem("Language");
       switch (this.language) {
         case 'en':
           this.server.CreateAlert("Warning", "Please choose atleast one seat.", ["Close"]);
@@ -291,7 +291,7 @@ export class SeatsPage {
       }
     } else {
       if (this.seats.length > 14) {
-        this.language = localStorage.getItem("AdeeelaLanguage");
+        this.language = localStorage.getItem("Language");
         switch (this.language) {
           case 'en':
             this.server.CreateAlert("Warning", "You cannot choose more than 14 seats on 1 booking", ["Close"]);

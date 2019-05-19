@@ -8,13 +8,13 @@ declare let $: any;
   templateUrl: 'about.html',
 })
 export class AboutPage {
-  language: any = localStorage.getItem('AdeeelaLanguage');
-  logged: any = localStorage.getItem('AdeeelaLoggedIn');
+  language: any = localStorage.getItem('Language');
+  logged: any = localStorage.getItem('LoggedIn');
   constructor(public translate: TranslateService, public navCtrl: NavController, public navParams: NavParams) {
     translate.use(this.language);
   }
   ionViewWillEnter() {
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     if (this.language == "ar") {
       $(".en").addClass("hidden");
       $(".leftmenubutton").addClass("hidden");

@@ -10,8 +10,8 @@ declare var $: any;
   templateUrl: 'trips.html',
 })
 export class TripsPage {
-  language: any = localStorage.getItem('AdeeelaLanguage');
-  user_id: any = localStorage.getItem('AdeeelaID');
+  language: any = localStorage.getItem('Language');
+  user_id: any = localStorage.getItem('ID');
   data: any;
   trips: any;
   today: any;
@@ -26,7 +26,7 @@ export class TripsPage {
       this.InitializeDate();
     }
     this.Validate();
-    this.language = localStorage.getItem("AdeeelaLanguage");
+    this.language = localStorage.getItem("Language");
     if (this.language == "ar") {
       $(".en").addClass("hidden");
       $(".leftmenubutton").addClass("hidden");
@@ -47,11 +47,11 @@ export class TripsPage {
     });
   }
   GetRequestedTrips() {
-    this.language = localStorage.getItem('AdeeelaLanguage');
+    this.language = localStorage.getItem('Language');
     switch (this.language) {
       case 'en':
         this.data = {
-          user_id: localStorage.getItem("AdeeelaID")
+          user_id: localStorage.getItem("ID")
         };
         this.server.CreateLoading("Getting Requests", "dots", 30000);
         this.server.ServerRequest("book", "GetUserRequestedTrips", this.data).then(result => {
@@ -65,7 +65,7 @@ export class TripsPage {
         break;
       case 'ar':
         this.data = {
-          user_id: localStorage.getItem("AdeeelaID")
+          user_id: localStorage.getItem("ID")
         };
         this.server.CreateLoading("جاري الحصول على الطلبات   ", "dots", 30000);
         this.server.ServerRequest("book", "GetUserRequestedTrips", this.data).then(result => {
@@ -82,11 +82,11 @@ export class TripsPage {
     }
   }
   Refresh() {
-    this.language = localStorage.getItem('AdeeelaLanguage');
+    this.language = localStorage.getItem('Language');
     switch (this.language) {
       case 'en':
         this.data = {
-          user_id: localStorage.getItem("AdeeelaID")
+          user_id: localStorage.getItem("ID")
         };
         this.server.HiddenServerRequest("book", "GetUserRequestedTrips", this.data).then(result => {
           var data = JSON.parse(JSON.stringify(result));
@@ -99,7 +99,7 @@ export class TripsPage {
         break;
       case 'ar':
         this.data = {
-          user_id: localStorage.getItem("AdeeelaID")
+          user_id: localStorage.getItem("ID")
         };
         this.server.HiddenServerRequest("book", "GetUserRequestedTrips", this.data).then(result => {
           var data = JSON.parse(JSON.stringify(result));
@@ -115,7 +115,7 @@ export class TripsPage {
     }
   }
   AcceptTrip(trip, index) {
-    this.language = localStorage.getItem('AdeeelaLanguage');
+    this.language = localStorage.getItem('Language');
     switch (this.language) {
       case 'en':
         this.data = {
@@ -128,7 +128,7 @@ export class TripsPage {
             this.server.CreateAlert("Operation Failed", "Please try again later", ["Close"]);
           } else {
             this.server.CreateAlert("Operation Successful", "Confirmed Successfully", ["Close"]);
-            this.server.MassNotifications("Trip Request Confirmed", "Please check the trip status", "adeeela99");
+            this.server.MassNotifications("Trip Request Confirmed", "Please check the trip status", "99");
             this.Refresh();
           }
         });
@@ -144,7 +144,7 @@ export class TripsPage {
             this.server.CreateAlert("فشلت العملية", "الرجاء المحاولة مرة اخرى", ["إغلاق"]);
           } else {
             this.server.CreateAlert("نجحت العملية", "تم التاكيد بنجاح", ["إغلاق"]);
-            this.server.MassNotifications("تم قبول طلب الرحلة", "يرجى التحقق من حالة الرحلة", "adeeela99");
+            this.server.MassNotifications("تم قبول طلب الرحلة", "يرجى التحقق من حالة الرحلة", "99");
             this.Refresh();
           }
         });
@@ -154,7 +154,7 @@ export class TripsPage {
     }
   }
   RejectTrip(trip, index) {
-    this.language = localStorage.getItem('AdeeelaLanguage');
+    this.language = localStorage.getItem('Language');
     switch (this.language) {
       case 'en':
         this.data = {
@@ -168,7 +168,7 @@ export class TripsPage {
             this.server.CreateAlert("Operation Failed", "Please try again later", ["Close"]);
           } else {
             this.server.CreateAlert("Operation Successful", "Rejected Successfully", ["Close"]);
-            this.server.MassNotifications("Trip Request Rejected", "Cost too high", "adeeela99");
+            this.server.MassNotifications("Trip Request Rejected", "Cost too high", "99");
             this.Refresh();
           }
         });
@@ -185,7 +185,7 @@ export class TripsPage {
             this.server.CreateAlert("فشلت العملية", "الرجاء المحاولة مرة اخرى", ["إغلاق"]);
           } else {
             this.server.CreateAlert("نجحت العملية", "تم الرفض بنجاح", ["إغلاق"]);
-            this.server.MassNotifications("تم رفض طلب الرحلة", "السعر مرتفع", "adeeela99");
+            this.server.MassNotifications("تم رفض طلب الرحلة", "السعر مرتفع", "99");
             this.Refresh();
           }
         });
@@ -195,7 +195,7 @@ export class TripsPage {
     }
   }
   Request(form) {
-    this.language = localStorage.getItem('AdeeelaLanguage');
+    this.language = localStorage.getItem('Language');
     switch (this.language) {
       case 'en':
         if (form.triptypeen == "" || form.triptypeen == null || form.bustypeen == "" || form.bustypeen == null || form.buscounten == "" || form.buscounten == null || form.fromen == "" || form.fromen == null || form.toen == "" || form.toen == null || form.phoneen == "" || form.phoneen == null || this.trip_date == "" || this.trip_date == null) {
@@ -231,7 +231,7 @@ export class TripsPage {
             }
             else {
               this.server.CreateAlert("Operation Successful", "Requested Successfully, Please wait for confirmation, We will get back to you ASAP", ["Close"]);
-              this.server.MassNotifications("Trip Request", "Please check the requested trip", "adeeela99");
+              this.server.MassNotifications("Trip Request", "Please check the requested trip", "99");
               $('#requesttripformen').each(function () {
                 this.reset();
               });
@@ -273,7 +273,7 @@ export class TripsPage {
               this.server.CreateAlert("فشلت العملية", "الرجاء المحاولة مرة اخرى", ["إغلاق"]);
             } else {
               this.server.CreateAlert("نجحت العملية", "تم الطلب بنجاح، الرجاء انتظار التاكيد، سوف نقوم بالرجوع اليك في اقرب فرصة ممكنة", ["إغلاق"]);
-              this.server.MassNotifications('طلب رحلة', 'الرجاء التحقق من طلب الرحلة', 'adeeela99');
+              this.server.MassNotifications('طلب رحلة', 'الرجاء التحقق من طلب الرحلة', '99');
               $('#requesttripformar').each(function () {
                 this.reset();
               });

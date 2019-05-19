@@ -43,7 +43,7 @@ export class HomePage {
   constructor(public translate: TranslateService, private server: ServerProvider, public navCtrl: NavController, public navParams: NavParams) {
     translate.use(this.language);
     //this.server.GetToken();
-    this.server.InitializeToken();
+   // this.server.InitializeToken();
     this.server.getCities().then(cs => {
       this.cities = cs;
     })
